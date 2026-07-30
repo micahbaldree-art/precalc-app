@@ -8,6 +8,9 @@ export default function Roster() {
   const router = useRouter();
   const [students, setStudents] = useState(null);
   const [confirming, setConfirming] = useState(false);
+  const [resetTarget, setResetTarget] = useState(null); // student being reset
+  const [newPassword, setNewPassword] = useState('');
+  const [resetMsg, setResetMsg] = useState('');
 
   useEffect(() => {
     if (user === undefined) return;
@@ -32,6 +35,23 @@ export default function Roster() {
     load();
   }
 
+  async function submitReset(e) {
+    e.preventDefault();
+    setResetMsg('');
+    const res = await fetch('/api/teacher/reset-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ studentId: resetTarget.id, newPassword }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      setResetMsg(data.error || 'Something went wrong.');
+      return;
+    }
+    setResetTarget(null);
+    setNewPassword('');
+  }
+
   if (user === undefined || !students) return null;
 
   return (
@@ -49,7 +69,7 @@ export default function Roster() {
         <div className="card" style={{ padding: 0 }}>
           <table className="assign-table">
             <thead>
-              <tr><th>Name</th><th>Email</th><th>Joined</th></tr>
+              <tr><th>Name</th><th>Email</th><th>Joined</th><th>Password</th></tr>
             </thead>
             <tbody>
               {students.map((s) => (
@@ -57,9 +77,14 @@ export default function Roster() {
                   <td>{s.lastName}, {s.firstName}</td>
                   <td>{s.email}</td>
                   <td>{new Date(s.createdAt).toLocaleDateString()}</td>
+                  <td>
+                    <button className="btn secondary" onClick={() => { setResetTarget(s); setNewPassword(''); setResetMsg(''); }}>
+                      Reset password
+                    </button>
+                  </td>
                 </tr>
               ))}
-              {students.length === 0 && <tr><td colSpan={3} style={{ color: '#64748b' }}>No students yet.</td></tr>}
+              {students.length === 0 && <tr><td colSpan={4} style={{ color: '#64748b' }}>No students yet.</td></tr>}
             </tbody>
           </table>
         </div>
@@ -74,6 +99,34 @@ export default function Roster() {
               <button className="btn secondary" onClick={() => setConfirming(false)}>Cancel</button>
               <button className="btn danger" onClick={deleteAll}>Delete all</button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {resetTarget && (
+        <div className="modal-overlay" onClick={() => setResetTarget(null)}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+            <h2>Reset password</h2>
+            <p style={{ color: '#64748b' }}>
+              Set a new password for {resetTarget.firstName} {resetTarget.lastName}. They'll need to use this new password to log in.
+            </p>
+            {resetMsg && <div className="error-box">{resetMsg}</div>}
+            <form onSubmit={submitReset}>
+              <input
+                className="input"
+                type="text"
+                placeholder="New password (6+ characters)"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                autoFocus
+                required
+                minLength={6}
+              />
+              <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+                <button type="button" className="btn secondary" onClick={() => setResetTarget(null)}>Cancel</button>
+                <button type="submit" className="btn">Set new password</button>
+              </div>
+            </form>
           </div>
         </div>
       )}

@@ -75,7 +75,7 @@ questions.push({
   prompt: 'Find the equation of the given graph — a decreasing square-root-shaped curve passing near (1,-4) and (5,-6), flattening to the right.',
   parts: [{
     id: 'mc', type: 'mc',
-    choices: [{ text: '$$y=-\\\\sqrt{x-1}+4$$' }, { text: '$$y=\\\\sqrt{x-1}-4$$' }, { text: '$$y=-\\\\sqrt{x-1}-4$$' }],
+    choices: [{ text: '$$y=-\\sqrt{x-1}+4$$' }, { text: '$$y=\\sqrt{x-1}-4$$' }, { text: '$$y=-\\sqrt{x-1}-4$$' }],
     correctIndex: 2,
   }],
 });
@@ -123,7 +123,7 @@ questions.push({
 // 19
 questions.push({
   prompt: 'Given a function f, which of the following represents a horizontal stretch by a factor of 2?',
-  parts: [{ id: 'mc', type: 'mc', choices: [{ text: '$$\\\\dfrac{f(x)}{2}$$' }, { text: '$$f(x/2)$$' }, { text: '$$2f(x)$$' }, { text: '$$f(2x)$$' }], correctIndex: 1 }],
+  parts: [{ id: 'mc', type: 'mc', choices: [{ text: '$$\\dfrac{f(x)}{2}$$' }, { text: '$$f(x/2)$$' }, { text: '$$2f(x)$$' }, { text: '$$f(2x)$$' }], correctIndex: 1 }],
 });
 // 20
 questions.push({ prompt: 'Solve.\\n\\n$$64x^2=49$$', parts: [{ id: 'x', type: 'list', correctList: ['7/8', '-7/8'] }] });
@@ -143,21 +143,21 @@ questions.push({
   ],
 });
 // 25
-questions.push({ prompt: 'Solve the inequality algebraically. Write the solution in interval notation.\\n\\n$$|x+5| \\\\ge 5$$', parts: [{ id: 'sol', type: 'interval', correctAnswer: '(-Infinity,-10]U[0,Infinity)' }] });
+questions.push({ prompt: 'Solve the inequality algebraically. Write the solution in interval notation.\\n\\n$$|x+5| \\ge 5$$', parts: [{ id: 'sol', type: 'interval', correctAnswer: '(-Infinity,-10]U[0,Infinity)' }] });
 // 26
-questions.push({ prompt: 'Solve the inequality. Use algebra to solve the corresponding equation.\\n\\n$$2x^2+21x+49 \\\\le 0$$', parts: [{ id: 'sol', type: 'interval', correctAnswer: '[-7,-7/2]' }] });
+questions.push({ prompt: 'Solve the inequality. Use algebra to solve the corresponding equation.\\n\\n$$2x^2+21x+49 \\le 0$$', parts: [{ id: 'sol', type: 'interval', correctAnswer: '[-7,-7/2]' }] });
 // 27
 questions.push({
   prompt: 'Solve the following problem without using a calculator. Which of the following is the solution to $$x^2>4$$?',
   parts: [{
     id: 'mc', type: 'mc',
-    choices: [{ text: '$$(-\\\\infty,-2]\\\\cup[2,\\\\infty)$$' }, { text: '$$(-\\\\infty,-2)\\\\cup(2,\\\\infty)$$' }, { text: '$$(-2,2)$$' }, { text: '$$[-2,2]$$' }, { text: 'There is no solution.' }],
+    choices: [{ text: '$$(-\\infty,-2]\\cup[2,\\infty)$$' }, { text: '$$(-\\infty,-2)\\cup(2,\\infty)$$' }, { text: '$$(-2,2)$$' }, { text: '$$[-2,2]$$' }, { text: 'There is no solution.' }],
     correctIndex: 1,
   }],
 });
 // 28
 questions.push({
-  prompt: 'Find the formulas for the functions f+g, f-g, and fg. Give the domain of each.\\n\\n$$f(x)=x^2, \\\\; g(x)=8x-2$$',
+  prompt: 'Find the formulas for the functions f+g, f-g, and fg. Give the domain of each.\\n\\n$$f(x)=x^2, g(x)=8x-2$$',
   parts: [
     { id: 'sum', type: 'expr', label: 'f+g', correctAnswer: 'x^2+8*x-2' },
     { id: 'sumdom', type: 'interval', label: 'Domain of f+g', correctAnswer: '(-Infinity,Infinity)' },
@@ -169,7 +169,7 @@ questions.push({
 });
 // 29
 questions.push({
-  prompt: 'Find formulas for the functions f+g, f-g, and fg. Give the domain of each.\\n\\n$$f(x)=\\\\sqrt{x}, \\\\; g(x)=\\\\sin x$$',
+  prompt: 'Find formulas for the functions f+g, f-g, and fg. Give the domain of each.\\n\\n$$f(x)=\\sqrt{x}, g(x)=\\sin x$$',
   parts: [
     { id: 'sum', type: 'expr', label: '(f+g)(x)', correctAnswer: 'sqrt(x)+sin(x)' },
     { id: 'diff', type: 'expr', label: '(f-g)(x)', correctAnswer: 'sqrt(x)-sin(x)' },
@@ -179,7 +179,7 @@ questions.push({
 });
 // 30
 questions.push({
-  prompt: 'Find formulas for f/g and g/f. Give the domain of each.\\n\\n$$f(x)=x^2+8, \\\\; g(x)=x$$',
+  prompt: 'Find formulas for f/g and g/f. Give the domain of each.\\n\\n$$f(x)=x^2+8, g(x)=x$$',
   parts: [
     { id: 'fg', type: 'expr', label: 'f/g', correctAnswer: '(x^2+8)/x' },
     { id: 'fgdom', type: 'interval', label: 'Domain of f/g', correctAnswer: '(-Infinity,0)U(0,Infinity)' },
@@ -189,7 +189,7 @@ questions.push({
 });
 // 31
 questions.push({
-  prompt: 'Find $$(f\\\\circ g)(5)$$ and $$(g\\\\circ f)(5)$$.\\n\\n$$f(x)=-4x-1, \\\\; g(x)=x^2-5$$',
+  prompt: 'Find $$(f\\circ g)(5)$$ and $$(g\\circ f)(5)$$.\\n\\n$$f(x)=-4x-1, g(x)=x^2-5$$',
   parts: [
     { id: 'fog', type: 'expr', label: '(f∘g)(5)', correctAnswer: '-81' },
     { id: 'gof', type: 'expr', label: '(g∘f)(5)', correctAnswer: '436' },
@@ -197,7 +197,7 @@ questions.push({
 });
 // 32
 questions.push({
-  prompt: 'Find f(g(x)) and g(f(x)). State the domain of each.\\n\\n$$f(x)=7x+4, \\\\; g(x)=x-3$$',
+  prompt: 'Find f(g(x)) and g(f(x)). State the domain of each.\\n\\n$$f(x)=7x+4, g(x)=x-3$$',
   parts: [
     { id: 'fg', type: 'expr', label: 'f(g(x))', correctAnswer: '7*x-17' },
     { id: 'fgdom', type: 'interval', label: 'Domain of f(g(x))', correctAnswer: '(-Infinity,Infinity)' },
@@ -207,16 +207,16 @@ questions.push({
 });
 // 33
 questions.push({
-  prompt: 'For the given functions, find (f∘g)(x) and (g∘f)(x) and the domain of each.\\n\\n$$f(x)=\\\\dfrac{7}{1-2x}, \\\\; g(x)=\\\\dfrac{1}{x}$$',
+  prompt: 'For the given functions, find (f∘g)(x) and (g∘f)(x) and the domain of each.\\n\\n$$f(x)=\\dfrac{7}{1-2x}, g(x)=\\dfrac{1}{x}$$',
   parts: [
     { id: 'fog', type: 'expr', label: '(f∘g)(x)', correctAnswer: '7*x/(x-2)' },
     { id: 'gof', type: 'expr', label: '(g∘f)(x)', correctAnswer: '(1-2*x)/7' },
-    { id: 'fogdom', type: 'mc', label: 'Domain of f∘g', choices: [{ text: '$$(-\\\\infty,2)\\\\cup(2,\\\\infty)$$' }, { text: '$$(-\\\\infty,0)\\\\cup(0,2)\\\\cup(2,\\\\infty)$$' }, { text: '$$(-\\\\infty,0)\\\\cup(0,\\\\infty)$$' }, { text: '$$(-\\\\infty,-2)\\\\cup(-2,0)\\\\cup(0,\\\\infty)$$' }], correctIndex: 1 },
-        { id: 'gofdom', type: 'mc', label: 'Domain of g∘f', choices: [{ text: '$$(-\\\\infty,0)\\\\cup(0,1/2)\\\\cup(1/2,\\\\infty)$$' }, { text: '$$(-\\\\infty,1/2)\\\\cup(1/2,\\\\infty)$$' }, { text: '$$(-\\\\infty,0)\\\\cup(0,\\\\infty)$$' }, { text: '$$(-\\\\infty,2)\\\\cup(2,\\\\infty)$$' }], correctIndex: 1 },
+    { id: 'fogdom', type: 'mc', label: 'Domain of f∘g', choices: [{ text: '$$(-\\infty,2)\\cup(2,\\infty)$$' }, { text: '$$(-\\infty,0)\\cup(0,2)\\cup(2,\\infty)$$' }, { text: '$$(-\\infty,0)\\cup(0,\\infty)$$' }, { text: '$$(-\\infty,-2)\\cup(-2,0)\\cup(0,\\infty)$$' }], correctIndex: 1 },
+        { id: 'gofdom', type: 'mc', label: 'Domain of g∘f', choices: [{ text: '$$(-\\infty,0)\\cup(0,1/2)\\cup(1/2,\\infty)$$' }, { text: '$$(-\\infty,1/2)\\cup(1/2,\\infty)$$' }, { text: '$$(-\\infty,0)\\cup(0,\\infty)$$' }, { text: '$$(-\\infty,2)\\cup(2,\\infty)$$' }], correctIndex: 1 },
   ],
 });
 // 34
-questions.push({ prompt: 'Find f(x) and g(x) such that h(x)=(f∘g)(x).\\n\\n$$h(x)=(7-7x)^2, \\\\; g(x)=7-7x$$', parts: [{ id: 'f', type: 'expr', label: 'f(x)', correctAnswer: 'x^2' }] });
+questions.push({ prompt: 'Find f(x) and g(x) such that h(x)=(f∘g)(x).\\n\\n$$h(x)=(7-7x)^2, g(x)=7-7x$$', parts: [{ id: 'f', type: 'expr', label: 'f(x)', correctAnswer: 'x^2' }] });
 // 35
 questions.push({
   prompt: 'The graph shown is a slight variation on one of the twelve basic functions (window [-5,5] by [-20,20]). Match the graph to the correct function.',
@@ -224,9 +224,9 @@ questions.push({
   parts: [{
     id: 'mc', type: 'mc',
     choices: [
-      { text: '$$y=-\\\\sqrt{x}$$' }, { text: '$$y=-\\\\sin x$$' }, { text: '$$y=-x$$' }, { text: '$$y=\\\\cos x+10$$' },
+      { text: '$$y=-\\sqrt{x}$$' }, { text: '$$y=-\\sin x$$' }, { text: '$$y=-x$$' }, { text: '$$y=\\cos x+10$$' },
       { text: '$$y=|x|-2$$' }, { text: '$$y=e^x-2$$' }, { text: '$$y=(x-10)^2$$' }, { text: '$$y=int(x+10)$$' },
-      { text: '$$y=-\\\\dfrac{2}{x}$$' }, { text: '$$y=(x+2)^3$$' }, { text: '$$y=2-\\\\dfrac{4}{1+e^{-x}}$$' }, { text: '$$y=x^3+10$$' },
+      { text: '$$y=-\\dfrac{2}{x}$$' }, { text: '$$y=(x+2)^3$$' }, { text: '$$y=2-\\dfrac{4}{1+e^{-x}}$$' }, { text: '$$y=x^3+10$$' },
     ],
     correctIndex: 11,
   }],
@@ -237,9 +237,9 @@ questions.push({
   parts: [{
     id: 'multi', type: 'multi',
     choices: [
-      { text: '$$y=|x|-2$$' }, { text: '$$y=(x-2)^3$$' }, { text: '$$y=\\\\sqrt{x}$$' }, { text: '$$y=-\\\\sin x$$' },
-      { text: '$$y=e^x-2$$' }, { text: '$$y=-\\\\cos x+1$$' }, { text: '$$y=(x-1)^2$$' }, { text: '$$y=x^3+1$$' },
-      { text: '$$y=2-\\\\dfrac{4}{1+e^{-x}}$$' }, { text: '$$y=-x$$' }, { text: '$$y=\\\\dfrac{1}{x}$$' }, { text: '$$y=int(x+1)$$' },
+      { text: '$$y=|x|-2$$' }, { text: '$$y=(x-2)^3$$' }, { text: '$$y=\\sqrt{x}$$' }, { text: '$$y=-\\sin x$$' },
+      { text: '$$y=e^x-2$$' }, { text: '$$y=-\\cos x+1$$' }, { text: '$$y=(x-1)^2$$' }, { text: '$$y=x^3+1$$' },
+      { text: '$$y=2-\\dfrac{4}{1+e^{-x}}$$' }, { text: '$$y=-x$$' }, { text: '$$y=\\dfrac{1}{x}$$' }, { text: '$$y=int(x+1)$$' },
     ],
     correctIndices: [10],
   }],
@@ -250,9 +250,9 @@ questions.push({
   parts: [{
     id: 'multi', type: 'multi',
     choices: [
-      { text: '$$-\\\\dfrac{1}{x}$$' }, { text: '$$y=x^3+1$$' }, { text: '$$y=int(x+1)$$' }, { text: '$$y=2-\\\\dfrac{4}{1+e^{-x}}$$' },
+      { text: '$$-\\dfrac{1}{x}$$' }, { text: '$$y=x^3+1$$' }, { text: '$$y=int(x+1)$$' }, { text: '$$y=2-\\dfrac{4}{1+e^{-x}}$$' },
       { text: '$$y=e^x-2$$' }, { text: '$$y=|x|-2$$' }, { text: '$$y=(x-1)^2$$' }, { text: '$$y=x-2$$' },
-      { text: '$$y=-\\\\sqrt{x}$$' }, { text: '$$y=(x-2)^3$$' }, { text: '$$y=\\\\cos x+1$$' }, { text: '$$y=-\\\\sin x$$' },
+      { text: '$$y=-\\sqrt{x}$$' }, { text: '$$y=(x-2)^3$$' }, { text: '$$y=\\cos x+1$$' }, { text: '$$y=-\\sin x$$' },
     ],
     correctIndices: [8],
   }],
@@ -263,9 +263,9 @@ questions.push({
   parts: [{
     id: 'multi', type: 'multi',
     choices: [
-      { text: '$$y=2-\\\\dfrac{4}{1+e^{-x}}$$' }, { text: '$$y=(x+2)^3$$' }, { text: '$$y=-\\\\sin x$$' }, { text: '$$y=-x$$' },
+      { text: '$$y=2-\\dfrac{4}{1+e^{-x}}$$' }, { text: '$$y=(x+2)^3$$' }, { text: '$$y=-\\sin x$$' }, { text: '$$y=-x$$' },
       { text: '$$y=|x|-2$$' }, { text: '$$y=e^x-2$$' }, { text: '$$y=int(x+1)$$' }, { text: '$$y=x^3+1$$' },
-      { text: '$$y=-\\\\dfrac{1}{x}$$' }, { text: '$$y=\\\\cos x+1$$' }, { text: '$$y=(x-1)^2$$' }, { text: '$$y=-\\\\sqrt{x}$$' },
+      { text: '$$y=-\\dfrac{1}{x}$$' }, { text: '$$y=\\cos x+1$$' }, { text: '$$y=(x-1)^2$$' }, { text: '$$y=-\\sqrt{x}$$' },
     ],
     correctIndices: [6, 8],
   }],
@@ -276,22 +276,22 @@ questions.push({
   parts: [{
     id: 'mc', type: 'mc',
     choices: [
-      { text: '$$y=\\\\cos x+1$$' }, { text: '$$y=(x-1)^2$$' }, { text: '$$y=-\\\\dfrac{1}{x}$$' }, { text: '$$y=x^3+1$$' },
-      { text: '$$y=int(x+1)$$' }, { text: '$$y=e^x-2$$' }, { text: '$$y=2-\\\\dfrac{4}{1+e^{-x}}$$' }, { text: '$$y=-x$$' },
-      { text: '$$y=-\\\\sqrt{x}$$' }, { text: '$$y=|x|-2$$' }, { text: '$$y=-\\\\sin x$$' }, { text: '$$y=(x+2)^3$$' },
+      { text: '$$y=\\cos x+1$$' }, { text: '$$y=(x-1)^2$$' }, { text: '$$y=-\\dfrac{1}{x}$$' }, { text: '$$y=x^3+1$$' },
+      { text: '$$y=int(x+1)$$' }, { text: '$$y=e^x-2$$' }, { text: '$$y=2-\\dfrac{4}{1+e^{-x}}$$' }, { text: '$$y=-x$$' },
+      { text: '$$y=-\\sqrt{x}$$' }, { text: '$$y=|x|-2$$' }, { text: '$$y=-\\sin x$$' }, { text: '$$y=(x+2)^3$$' },
     ],
     correctIndex: 4,
   }],
 });
 // 40
 questions.push({
-  prompt: 'Identify which of the twelve basic functions are decreasing on the interval $$(-\\\\infty,0)$$. Select all that apply.',
+  prompt: 'Identify which of the twelve basic functions are decreasing on the interval $$(-\\infty,0)$$. Select all that apply.',
   parts: [{
     id: 'multi', type: 'multi',
     choices: [
-      { text: '$$y=\\\\sin x$$' }, { text: '$$y=x^2$$' }, { text: '$$y=e^x$$' }, { text: '$$y=|x|$$' },
-      { text: '$$y=int(x)$$' }, { text: '$$y=\\\\dfrac{1}{x}$$' }, { text: '$$y=\\\\ln x$$' }, { text: '$$y=x$$' },
-      { text: '$$y=\\\\dfrac{1}{1+e^{-x}}$$' }, { text: '$$y=\\\\sqrt{x}$$' }, { text: '$$y=\\\\cos x$$' }, { text: '$$y=x^3$$' },
+      { text: '$$y=\\sin x$$' }, { text: '$$y=x^2$$' }, { text: '$$y=e^x$$' }, { text: '$$y=|x|$$' },
+      { text: '$$y=int(x)$$' }, { text: '$$y=\\dfrac{1}{x}$$' }, { text: '$$y=\\ln x$$' }, { text: '$$y=x$$' },
+      { text: '$$y=\\dfrac{1}{1+e^{-x}}$$' }, { text: '$$y=\\sqrt{x}$$' }, { text: '$$y=\\cos x$$' }, { text: '$$y=x^3$$' },
     ],
     correctIndices: [1, 3, 5],
   }],
@@ -302,16 +302,16 @@ questions.push({
   parts: [{
     id: 'multi', type: 'multi',
     choices: [
-      { text: '$$y=\\\\dfrac{1}{1+e^{-x}}$$' }, { text: '$$y=\\\\sin x$$' }, { text: '$$y=x^3$$' }, { text: '$$y=x$$' },
-      { text: '$$y=\\\\sqrt{x}$$' }, { text: '$$y=\\\\ln x$$' }, { text: '$$y=|x|$$' }, { text: '$$y=x^2$$' },
-      { text: '$$y=e^x$$' }, { text: '$$y=\\\\cos x$$' }, { text: '$$y=int(x)$$' }, { text: '$$y=\\\\dfrac{1}{x}$$' },
+      { text: '$$y=\\dfrac{1}{1+e^{-x}}$$' }, { text: '$$y=\\sin x$$' }, { text: '$$y=x^3$$' }, { text: '$$y=x$$' },
+      { text: '$$y=\\sqrt{x}$$' }, { text: '$$y=\\ln x$$' }, { text: '$$y=|x|$$' }, { text: '$$y=x^2$$' },
+      { text: '$$y=e^x$$' }, { text: '$$y=\\cos x$$' }, { text: '$$y=int(x)$$' }, { text: '$$y=\\dfrac{1}{x}$$' },
     ],
     correctIndices: [1, 2, 3, 11],
   }],
 });
 // 42
 questions.push({
-  prompt: 'Use a graphing calculator to graph $$f(x)=\\\\ln(x-3)$$. Determine the domain and range by looking at the graph.',
+  prompt: 'Use a graphing calculator to graph $$f(x)=\\ln(x-3)$$. Determine the domain and range by looking at the graph.',
   svg: functionGraphSvg('log(x-3)', { xMin: -2, xMax: 10, yMin: -6, yMax: 6 }),
   parts: [
     { id: 'domain', type: 'interval', correctAnswer: '(3,Infinity)' },
@@ -320,15 +320,15 @@ questions.push({
 });
 // 43
 questions.push({
-  prompt: 'Use a graphing calculator to graph $$s(x)=\\\\mathrm{int}\\\\left(\\\\dfrac{3x}{4}\\\\right)$$. Determine the domain, and choose the range.',
+  prompt: 'Use a graphing calculator to graph $$s(x)=\\mathrm{int}\\left(\\dfrac{3x}{4}\\right)$$. Determine the domain, and choose the range.',
   parts: [
     { id: 'domain', type: 'interval', label: 'Domain', correctAnswer: '(-Infinity,Infinity)' },
-    { id: 'range', type: 'mc', label: 'Range', choices: [{ text: '$$\\\\{...,-2,-1,0,1,2,...\\\\}$$' }, { text: '$$\\\\{...,-8,-4,0,4,8,...\\\\}$$' }, { text: '$$(-\\\\infty,0]\\\\cup[0,\\\\infty)$$' }, { text: '$$(-\\\\infty,\\\\infty)$$' }], correctIndex: 0 },
+    { id: 'range', type: 'mc', label: 'Range', choices: [{ text: '$$\\{...,-2,-1,0,1,2,...\\}$$' }, { text: '$$\\{...,-8,-4,0,4,8,...\\}$$' }, { text: '$$(-\\infty,0]\\cup[0,\\infty)$$' }, { text: '$$(-\\infty,\\infty)$$' }], correctIndex: 0 },
   ],
 });
 // 44
 questions.push({
-  prompt: 'Graph $$f(x)=\\\\sqrt{x-10}$$. (a) Increasing/decreasing interval? (b) Odd, even, or neither? (c) Extrema? (d) Relation to a basic function?',
+  prompt: 'Graph $$f(x)=\\sqrt{x-10}$$. (a) Increasing/decreasing interval? (b) Odd, even, or neither? (c) Extrema? (d) Relation to a basic function?',
   svg: functionGraphSvg('sqrt(x-10)', { xMin: -20, xMax: 20, yMin: -10, yMax: 10 }),
   parts: [
     { id: 'inc', type: 'interval', label: 'Increasing on', correctAnswer: '[10,Infinity)' },

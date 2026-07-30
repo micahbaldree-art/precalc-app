@@ -140,3 +140,7 @@ table.gradebook th.namecol, table.gradebook td.namecol { text-align: left; posit
 table.gradebook .avgrow td { background: #f8fafc; font-weight: 700; }
 
 .svg-wrap svg { max-width: 100%; height: auto; }
+.svg-wrap-small { width: 100%; }
+.svg-wrap-small svg { display: block; }
+.svg-wrap-large { width: min(90vw, 700px); background: white; border-radius: 10px; padding: 16px; }
+.svg-wrap-large svg { width: 100%; height: auto; }

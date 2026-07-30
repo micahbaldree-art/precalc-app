@@ -76,7 +76,7 @@ module.exports = {
       parts: [{ id: 'mc', type: 'mc', choices: ['A horizontal shrink by a factor of 1/0.5.', 'A horizontal stretch by a factor of 1/0.5.'], correctIndex: 1 }],
     },
     {
-      prompt: 'Describe how to transform the graph of f into the graph of g.\\n\\n$$f(x)=(x-7)^3, \\\\; g(x)=-(x+7)^3$$',
+      prompt: 'Describe how to transform the graph of f into the graph of g.\\n\\n$$f(x)=(x-7)^3, g(x)=-(x+7)^3$$',
       parts: [{
         id: 'mc', type: 'mc',
         choices: [
@@ -92,7 +92,7 @@ module.exports = {
       prompt: 'Find the equation of the given graph — a decreasing square-root-shaped curve near (3,-1), flattening to the right.',
       parts: [{
         id: 'mc', type: 'mc',
-        choices: [{ text: '$$y=-\\\\sqrt{x-3}-1$$' }, { text: '$$y=-\\\\sqrt{x}-3+1$$' }, { text: '$$y=\\\\sqrt{x-3}-1$$' }],
+        choices: [{ text: '$$y=-\\sqrt{x-3}-1$$' }, { text: '$$y=-\\sqrt{x}-3+1$$' }, { text: '$$y=\\sqrt{x-3}-1$$' }],
         correctIndex: 0,
       }],
     },
@@ -137,7 +137,7 @@ module.exports = {
       ],
     },
     {
-      prompt: 'The graph of $$y=-\\\\tfrac{1}{4}|x+3|+4$$ can be obtained from the graph of $$y=|x|$$ by which transformations?',
+      prompt: 'The graph of $$y=-\\tfrac{1}{4}|x+3|+4$$ can be obtained from the graph of $$y=|x|$$ by which transformations?',
       parts: [
         { id: 'shift_h', type: 'mc', label: 'Horizontal shift', choices: ['3 units to the right', '3 units to the left', '4 units to the left', '4 units to the right'], correctIndex: 1 },
         { id: 'stretch', type: 'mc', label: 'Stretch/shrink and reflection', choices: ['shrunk vertically by a factor of 1/4; reflected over the y-axis', 'stretched vertically by a factor of 4; reflected over the x-axis', 'stretched vertically by a factor of 4; reflected over the y-axis', 'shrunk vertically by a factor of 1/4; reflected over the x-axis'], correctIndex: 3 },

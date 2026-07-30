@@ -2,7 +2,7 @@ module.exports = {
   title: 'HW 1.5 - Compositions/Inverses',
   questions: [
     {
-      prompt: 'Find the formulas for the functions f+g, f-g, and fg. Give the domain of each.\\n\\n$$f(x)=x^2, \\\\; g(x)=3x-7$$',
+      prompt: 'Find the formulas for the functions f+g, f-g, and fg. Give the domain of each.\\n\\n$$f(x)=x^2, g(x)=3x-7$$',
       parts: [
         { id: 'sum', type: 'expr', label: 'f+g', correctAnswer: 'x^2+3*x-7' },
         { id: 'sumdom', type: 'interval', label: 'Domain of f+g', correctAnswer: '(-Infinity,Infinity)' },
@@ -13,7 +13,7 @@ module.exports = {
       ],
     },
     {
-      prompt: 'Find formulas for f/g and g/f. Give the domain of each.\\n\\n$$f(x)=x^3+9, \\\\; g(x)=x$$',
+      prompt: 'Find formulas for f/g and g/f. Give the domain of each.\\n\\n$$f(x)=x^3+9, g(x)=x$$',
       parts: [
         { id: 'fg', type: 'expr', label: 'f/g', correctAnswer: '(x^3+9)/x' },
         { id: 'fgdom', type: 'interval', label: 'Domain of f/g', correctAnswer: '(-Infinity,0)U(0,Infinity)' },
@@ -22,14 +22,14 @@ module.exports = {
       ],
     },
     {
-      prompt: 'Find $$(f\\\\circ g)(5)$$ and $$(g\\\\circ f)(5)$$.\\n\\n$$f(x)=4x-1, \\\\; g(x)=x^2+3$$',
+      prompt: 'Find $$(f\\circ g)(5)$$ and $$(g\\circ f)(5)$$.\\n\\n$$f(x)=4x-1, g(x)=x^2+3$$',
       parts: [
         { id: 'fog', type: 'expr', label: '(f∘g)(5)', correctAnswer: '111' },
         { id: 'gof', type: 'expr', label: '(g∘f)(5)', correctAnswer: '364' },
       ],
     },
     {
-      prompt: 'Find f(g(x)) and g(f(x)). State the domain of each.\\n\\n$$f(x)=9x+8, \\\\; g(x)=x-7$$',
+      prompt: 'Find f(g(x)) and g(f(x)). State the domain of each.\\n\\n$$f(x)=9x+8, g(x)=x-7$$',
       parts: [
         { id: 'fg', type: 'expr', label: 'f(g(x))', correctAnswer: '9*x-55' },
         { id: 'fgdom', type: 'interval', label: 'Domain of f(g(x))', correctAnswer: '(-Infinity,Infinity)' },
@@ -38,20 +38,20 @@ module.exports = {
       ],
     },
     {
-      prompt: 'For the given functions, find (f∘g)(x) and (g∘f)(x) and the domain of each.\\n\\n$$f(x)=\\\\sqrt{x+6}, \\\\; g(x)=x^2-6$$',
+      prompt: 'For the given functions, find (f∘g)(x) and (g∘f)(x) and the domain of each.\\n\\n$$f(x)=\\sqrt{x+6}, g(x)=x^2-6$$',
       parts: [
         { id: 'fog', type: 'expr', label: '(f∘g)(x)', correctAnswer: 'abs(x)' },
         { id: 'gof', type: 'expr', label: '(g∘f)(x)', correctAnswer: 'x' },
-        { id: 'fogdom', type: 'mc', label: 'Domain of f∘g', choices: [{ text: '$$(-\\\\infty,-6)\\\\cup(-6,\\\\infty)$$' }, { text: '$$[6,\\\\infty)$$' }, { text: '$$[-6,\\\\infty)$$' }, { text: '$$(-\\\\infty,\\\\infty)$$' }], correctIndex: 3 },
-        { id: 'gofdom', type: 'mc', label: 'Domain of g∘f', choices: [{ text: '$$[6,\\\\infty)$$' }, { text: '$$(-\\\\infty,\\\\infty)$$' }, { text: '$$[-6,\\\\infty)$$' }, { text: '$$(-\\\\infty,-6)\\\\cup(-6,\\\\infty)$$' }], correctIndex: 2 },
+        { id: 'fogdom', type: 'mc', label: 'Domain of f∘g', choices: [{ text: '$$(-\\infty,-6)\\cup(-6,\\infty)$$' }, { text: '$$[6,\\infty)$$' }, { text: '$$[-6,\\infty)$$' }, { text: '$$(-\\infty,\\infty)$$' }], correctIndex: 3 },
+        { id: 'gofdom', type: 'mc', label: 'Domain of g∘f', choices: [{ text: '$$[6,\\infty)$$' }, { text: '$$(-\\infty,\\infty)$$' }, { text: '$$[-6,\\infty)$$' }, { text: '$$(-\\infty,-6)\\cup(-6,\\infty)$$' }], correctIndex: 2 },
       ],
     },
     {
-      prompt: 'Find f(x) and g(x) such that h(x)=(f∘g)(x).\\n\\n$$h(x)=\\\\sqrt{4x+7}, \\\\; g(x)=4x+7$$',
+      prompt: 'Find f(x) and g(x) such that h(x)=(f∘g)(x).\\n\\n$$h(x)=\\sqrt{4x+7}, g(x)=4x+7$$',
       parts: [{ id: 'f', type: 'expr', label: 'f(x)', correctAnswer: 'sqrt(x)' }],
     },
     {
-      prompt: 'Find f(x) and g(x) such that h(x)=(f∘g)(x).\\n\\n$$h(x)=(9-5x)^2, \\\\; g(x)=9-5x$$',
+      prompt: 'Find f(x) and g(x) such that h(x)=(f∘g)(x).\\n\\n$$h(x)=(9-5x)^2, g(x)=9-5x$$',
       parts: [{ id: 'f', type: 'expr', label: 'f(x)', correctAnswer: 'x^2' }],
     },
     {
@@ -59,7 +59,7 @@ module.exports = {
       parts: [{ id: 'pt', type: 'point', correctPoints: [[3, -5]] }],
     },
     {
-      prompt: 'Find the (x,y) pair for the value of the parameter.\\n\\n$$x=3t, \\\\; y=t^2+5, \\\\; t=4$$',
+      prompt: 'Find the (x,y) pair for the value of the parameter.\\n\\n$$x=3t, y=t^2+5, t=4$$',
       parts: [{ id: 'pt', type: 'point', correctPoints: [[12, 21]] }],
     },
     {
@@ -80,25 +80,25 @@ module.exports = {
       prompt: 'The function f(x) is one-to-one. Find its inverse and its domain.\\n\\n$$f(x)=6x-8$$',
       parts: [
         { id: 'inv', type: 'expr', label: 'f⁻¹(x)', correctAnswer: '(x+8)/6' },
-        { id: 'dom', type: 'mc', label: 'Domain of f⁻¹', choices: [{ text: '$$(-\\\\infty,\\\\infty)$$' }, { text: '$$(-\\\\infty,6]$$' }, { text: '$$(8,\\\\infty)$$' }, { text: '$$[6,\\\\infty)$$' }], correctIndex: 0 },
+        { id: 'dom', type: 'mc', label: 'Domain of f⁻¹', choices: [{ text: '$$(-\\infty,\\infty)$$' }, { text: '$$(-\\infty,6]$$' }, { text: '$$(8,\\infty)$$' }, { text: '$$[6,\\infty)$$' }], correctIndex: 0 },
       ],
     },
     {
-      prompt: 'Find the inverse of the one-to-one function $$f(x)=\\\\dfrac{x+1}{x-9}$$. Give the domain of f⁻¹.',
+      prompt: 'Find the inverse of the one-to-one function $$f(x)=\\dfrac{x+1}{x-9}$$. Give the domain of f⁻¹.',
       parts: [
         { id: 'inv', type: 'expr', label: 'f⁻¹(x)', correctAnswer: '(9*x+1)/(x-1)' },
-        { id: 'dom', type: 'mc', label: 'Domain of f⁻¹', choices: [{ text: '$$(-\\\\infty,9)\\\\cup(9,\\\\infty)$$' }, { text: '$$(-\\\\infty,\\\\infty)$$' }, { text: '$$(-\\\\infty,-1/9)\\\\cup(-1/9,\\\\infty)$$' }, { text: '$$(-\\\\infty,1)\\\\cup(1,\\\\infty)$$' }], correctIndex: 3 },
+        { id: 'dom', type: 'mc', label: 'Domain of f⁻¹', choices: [{ text: '$$(-\\infty,9)\\cup(9,\\infty)$$' }, { text: '$$(-\\infty,\\infty)$$' }, { text: '$$(-\\infty,-1/9)\\cup(-1/9,\\infty)$$' }, { text: '$$(-\\infty,1)\\cup(1,\\infty)$$' }], correctIndex: 3 },
       ],
     },
     {
-      prompt: 'Find a formula for f⁻¹(x). Give the domain of f⁻¹, including any restrictions inherited from f.\\n\\n$$f(x)=\\\\sqrt[7]{x+4}$$',
+      prompt: 'Find a formula for f⁻¹(x). Give the domain of f⁻¹, including any restrictions inherited from f.\\n\\n$$f(x)=\\sqrt[7]{x+4}$$',
       parts: [
         { id: 'inv', type: 'expr', label: 'f⁻¹(x)', correctAnswer: 'x^7-4' },
         { id: 'dom', type: 'interval', label: 'Domain of f⁻¹(x)', correctAnswer: '(-Infinity,Infinity)' },
       ],
     },
     {
-      prompt: 'Find f(g(x)) and g(f(x)) and determine whether f and g are inverses of each other.\\n\\n$$f(x)=8x+5, \\\\; g(x)=\\\\dfrac{x-5}{8}$$',
+      prompt: 'Find f(g(x)) and g(f(x)) and determine whether f and g are inverses of each other.\\n\\n$$f(x)=8x+5, g(x)=\\dfrac{x-5}{8}$$',
       parts: [
         { id: 'a', type: 'expr', label: 'f(g(x))', correctAnswer: 'x' },
         { id: 'b', type: 'expr', label: 'g(f(x))', correctAnswer: 'x' },
@@ -106,7 +106,7 @@ module.exports = {
       ],
     },
     {
-      prompt: 'Confirm that f and g are inverses by showing that f(g(x))=x and g(f(x))=x.\\n\\n$$f(x)=x^3+4, \\\\; g(x)=\\\\sqrt[3]{x-4}$$',
+      prompt: 'Confirm that f and g are inverses by showing that f(g(x))=x and g(f(x))=x.\\n\\n$$f(x)=x^3+4, g(x)=\\sqrt[3]{x-4}$$',
       parts: [
         { id: 'a', type: 'mc', label: 'Is f(g(x)) = x?', choices: ['Yes', 'No'], correctIndex: 0 },
         { id: 'b', type: 'mc', label: 'Is g(f(x)) = x?', choices: ['Yes', 'No'], correctIndex: 0 },
@@ -116,7 +116,7 @@ module.exports = {
       prompt: 'Which function is the inverse of the function $$f(x)=6x-7$$?',
       parts: [{
         id: 'mc', type: 'mc',
-        choices: [{ text: '$$g(x)=\\\\dfrac{x-6}{7}$$' }, { text: '$$g(x)=\\\\dfrac{x-7}{6}$$' }, { text: '$$g(x)=7-6x$$' }, { text: '$$g(x)=\\\\dfrac{x+7}{6}$$' }, { text: '$$g(x)=\\\\dfrac{x+42}{6}$$' }],
+        choices: [{ text: '$$g(x)=\\dfrac{x-6}{7}$$' }, { text: '$$g(x)=\\dfrac{x-7}{6}$$' }, { text: '$$g(x)=7-6x$$' }, { text: '$$g(x)=\\dfrac{x+7}{6}$$' }, { text: '$$g(x)=\\dfrac{x+42}{6}$$' }],
         correctIndex: 3,
       }],
     },

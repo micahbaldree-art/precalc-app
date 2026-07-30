@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useUser } from '../../../../lib/useUser';
 import MathInput from '../../../../components/MathInput';
 import MathText from '../../../../components/MathText';
+import ZoomableSvg from '../../../../components/ZoomableSvg';
 
 function renderChoice(choice) {
   if (typeof choice === 'string') return <MathText text={choice} inline />;
@@ -11,13 +12,25 @@ function renderChoice(choice) {
   return null;
 }
 
+// `value` here is the INITIAL value read once when this part mounts — see
+// the note in MathInput.js about why math fields are uncontrolled.
 function PartInput({ part, value, onChange, disabled }) {
   if (part.type === 'mc') {
+    const [selected, setSelected] = useState(value);
     return (
       <div>
         {part.choices.map((choice, i) => (
-          <label key={i} className={`choice-row ${value === i ? 'selected' : ''}`}>
-            <input type="radio" name={part.id} checked={value === i} disabled={disabled} onChange={() => onChange(i)} />
+          <label key={i} className={`choice-row ${selected === i ? 'selected' : ''}`}>
+            <input
+              type="radio"
+              name={part.id}
+              checked={selected === i}
+              disabled={disabled}
+              onChange={() => {
+                setSelected(i);
+                onChange(i);
+              }}
+            />
             {renderChoice(choice)}
           </label>
         ))}
@@ -25,17 +38,18 @@ function PartInput({ part, value, onChange, disabled }) {
     );
   }
   if (part.type === 'multi') {
-    const sel = Array.isArray(value) ? value : [];
+    const [selected, setSelected] = useState(Array.isArray(value) ? value : []);
     return (
       <div>
         {part.choices.map((choice, i) => (
-          <label key={i} className={`choice-row ${sel.includes(i) ? 'selected' : ''}`}>
+          <label key={i} className={`choice-row ${selected.includes(i) ? 'selected' : ''}`}>
             <input
               type="checkbox"
-              checked={sel.includes(i)}
+              checked={selected.includes(i)}
               disabled={disabled}
               onChange={(e) => {
-                const next = e.target.checked ? [...sel, i] : sel.filter((x) => x !== i);
+                const next = e.target.checked ? [...selected, i] : selected.filter((x) => x !== i);
+                setSelected(next);
                 onChange(next);
               }}
             />
@@ -48,41 +62,85 @@ function PartInput({ part, value, onChange, disabled }) {
   if (part.type === 'expr' || part.type === 'list') {
     return (
       <div>
-        <MathInput value={value || ''} onChange={onChange} disabled={disabled} />
+        <MathInput defaultValue={value || ''} onChange={onChange} disabled={disabled} />
         {part.type === 'list' && <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: 4 }}>Separate multiple answers with a comma.</div>}
       </div>
     );
   }
   if (part.type === 'interval' || part.type === 'point') {
+    const [text, setText] = useState(value || '');
     return (
       <input
         className="input"
         style={{ maxWidth: 360 }}
-        value={value || ''}
+        value={text}
         disabled={disabled}
         placeholder={part.type === 'interval' ? 'e.g. (-infinity,-3]U[5,infinity)' : 'e.g. (3,-5)'}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => {
+          setText(e.target.value);
+          onChange(e.target.value);
+        }}
       />
     );
   }
   if (part.type === 'factor') {
-    const v = value || {};
+    const [choiceState, setChoiceState] = useState(value || {});
     return (
       <div>
-        <label className={`choice-row ${v.choice === 'factor' ? 'selected' : ''}`}>
-          <input type="radio" name={part.id} checked={v.choice === 'factor'} disabled={disabled} onChange={() => onChange({ ...v, choice: 'factor' })} />
+        <label className={`choice-row ${choiceState.choice === 'factor' ? 'selected' : ''}`}>
+          <input
+            type="radio"
+            name={part.id}
+            checked={choiceState.choice === 'factor'}
+            disabled={disabled}
+            onChange={() => {
+              const next = { ...choiceState, choice: 'factor' };
+              setChoiceState(next);
+              onChange(next);
+            }}
+          />
           <span>Factor it:</span>
-          <MathInput value={v.expr || ''} onChange={(val) => onChange({ choice: 'factor', expr: val })} disabled={disabled || v.choice !== 'factor'} />
+          <MathInput
+            defaultValue={choiceState.expr || ''}
+            onChange={(val) => {
+              const next = { choice: 'factor', expr: val };
+              setChoiceState(next);
+              onChange(next);
+            }}
+            disabled={disabled || choiceState.choice !== 'factor'}
+          />
         </label>
-        <label className={`choice-row ${v.choice === 'prime' ? 'selected' : ''}`}>
-          <input type="radio" name={part.id} checked={v.choice === 'prime'} disabled={disabled} onChange={() => onChange({ choice: 'prime' })} />
+        <label className={`choice-row ${choiceState.choice === 'prime' ? 'selected' : ''}`}>
+          <input
+            type="radio"
+            name={part.id}
+            checked={choiceState.choice === 'prime'}
+            disabled={disabled}
+            onChange={() => {
+              const next = { choice: 'prime' };
+              setChoiceState(next);
+              onChange(next);
+            }}
+          />
           <span>The polynomial is prime.</span>
         </label>
       </div>
     );
   }
   if (part.type === 'text') {
-    return <input className="input" style={{ maxWidth: 360 }} value={value || ''} disabled={disabled} onChange={(e) => onChange(e.target.value)} />;
+    const [text, setText] = useState(value || '');
+    return (
+      <input
+        className="input"
+        style={{ maxWidth: 360 }}
+        value={text}
+        disabled={disabled}
+        onChange={(e) => {
+          setText(e.target.value);
+          onChange(e.target.value);
+        }}
+      />
+    );
   }
   return null;
 }
@@ -92,10 +150,10 @@ export default function QuestionRunner() {
   const router = useRouter();
   const { id, qid } = router.query;
   const [data, setData] = useState(null);
-  const [draft, setDraft] = useState({});
   const [error, setError] = useState('');
   const [saveStatus, setSaveStatus] = useState('');
   const [showIncorrect, setShowIncorrect] = useState(false);
+  const draftRef = useRef({});
   const saveTimer = useRef(null);
 
   const load = useCallback(() => {
@@ -122,15 +180,14 @@ export default function QuestionRunner() {
   const question = data?.questions.find((q) => String(q.id) === String(qid));
 
   useEffect(() => {
-    if (question) setDraft(question.draft || {});
+    if (question) draftRef.current = { ...(question.draft || {}) };
   }, [question?.id]);
 
   function updatePart(partId, value) {
-    const next = { ...draft, [partId]: value };
-    setDraft(next);
+    draftRef.current = { ...draftRef.current, [partId]: value };
     setSaveStatus('Saving…');
     clearTimeout(saveTimer.current);
-    saveTimer.current = setTimeout(() => saveDraft(next), 600);
+    saveTimer.current = setTimeout(() => saveDraft(draftRef.current), 600);
   }
 
   async function saveDraft(d) {
@@ -144,7 +201,7 @@ export default function QuestionRunner() {
 
   async function manualSave() {
     clearTimeout(saveTimer.current);
-    await saveDraft(draft);
+    await saveDraft(draftRef.current);
   }
 
   async function checkAnswer() {
@@ -152,7 +209,7 @@ export default function QuestionRunner() {
     const res = await fetch(`/api/answers/${qid}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ draft, submit: true }),
+      body: JSON.stringify({ draft: draftRef.current, submit: true }),
     });
     const result = await res.json();
     if (result.correct) {
@@ -204,19 +261,22 @@ export default function QuestionRunner() {
           <div className="scorebox">
             <div>Score: {assignment.percent}% ({assignment.correctCount} of {assignment.totalQuestions})</div>
           </div>
-          <button className="btn" onClick={manualSave}>Save</button>
+          <div style={{ display: 'flex', gap: 10 }}>
+            <button className="btn secondary" onClick={() => router.push(`/assignments/${id}`)}>Back to assignment</button>
+            <button className="btn" onClick={manualSave}>Save</button>
+          </div>
         </div>
 
         <div style={{ padding: '28px 40px' }}>
           <div className="card">
             <MathText text={question.prompt} />
-            {question.svg && <div className="svg-wrap" style={{ margin: '16px 0' }} dangerouslySetInnerHTML={{ __html: question.svg }} />}
+            {question.svg && <ZoomableSvg svg={question.svg} />}
 
             <div style={{ marginTop: 20 }}>
               {question.parts.map((part) => (
-                <div className="part-block" key={part.id}>
+                <div className="part-block" key={`${qid}-${part.id}`}>
                   {part.label && <div className="part-label">{part.label}</div>}
-                  <PartInput part={part} value={draft[part.id]} onChange={(v) => updatePart(part.id, v)} disabled={isCorrect} />
+                  <PartInput part={part} value={question.draft ? question.draft[part.id] : undefined} onChange={(v) => updatePart(part.id, v)} disabled={isCorrect} />
                 </div>
               ))}
             </div>

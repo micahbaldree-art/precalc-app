@@ -29,7 +29,7 @@ module.exports = {
       }],
     },
     {
-      prompt: 'Describe how the graph of $$y=\\\\sqrt{x}$$ can be transformed to the graph of the given function.\\n\\n$$f(x) = \\\\sqrt{-x} - 4$$',
+      prompt: 'Describe how the graph of $$y=\\sqrt{x}$$ can be transformed to the graph of the given function.\\n\\n$$f(x) = \\sqrt{-x} - 4$$',
       parts: [{
         id: 'mc', type: 'mc',
         choices: [
@@ -50,7 +50,7 @@ module.exports = {
       parts: [{ id: 'mc', type: 'mc', choices: ['A horizontal shrink by a factor of 1/0.8.', 'A horizontal stretch by a factor of 1/0.8.'], correctIndex: 1 }],
     },
     {
-      prompt: 'Sketch the graphs of f, g, and h, then choose the matching graph for each.\\n\\n$$f(x) = \\\\sqrt[3]{x-4}$$\\n$$g(x) = 4\\\\sqrt[3]{x} + 1$$\\n$$h(x) = -\\\\sqrt[3]{x+9}$$',
+      prompt: 'Sketch the graphs of f, g, and h, then choose the matching graph for each.\\n\\n$$f(x) = \\sqrt[3]{x-4}$$\\n$$g(x) = 4\\sqrt[3]{x} + 1$$\\n$$h(x) = -\\sqrt[3]{x+9}$$',
       parts: [
         {
           id: 'f', type: 'mc', label: 'Graph of f',
@@ -89,9 +89,9 @@ module.exports = {
       parts: [{
         id: 'mc', type: 'mc',
         choices: [
-          { text: '$$y=-\\\\sqrt{x+5}-5$$' },
-          { text: '$$y=\\\\sqrt{x+5}+5$$' },
-          { text: '$$y=-\\\\sqrt{x+5}+5$$' },
+          { text: '$$y=-\\sqrt{x+5}-5$$' },
+          { text: '$$y=\\sqrt{x+5}+5$$' },
+          { text: '$$y=-\\sqrt{x+5}+5$$' },
         ],
         correctIndex: 2,
       }],
@@ -120,7 +120,7 @@ module.exports = {
       ],
     },
     {
-      prompt: 'The graph of $$y=-\\\\tfrac{1}{2}|x+5|-4$$ can be obtained from the graph of $$y=|x|$$ by which transformations?',
+      prompt: 'The graph of $$y=-\\tfrac{1}{2}|x+5|-4$$ can be obtained from the graph of $$y=|x|$$ by which transformations?',
       parts: [
         { id: 'shift_h', type: 'mc', label: 'Horizontal shift', choices: ['5 units to the right', '5 units to the left', '4 units to the right', '4 units to the left'], correctIndex: 1 },
         { id: 'stretch', type: 'mc', label: 'Vertical stretch/shrink and reflection', choices: ['stretched vertically by a factor of 2; reflected over the y-axis', 'stretched vertically by a factor of 2; reflected over the x-axis', 'shrunk vertically by a factor of 1/2; reflected over the y-axis', 'shrunk vertically by a factor of 1/2; reflected over the x-axis'], correctIndex: 3 },

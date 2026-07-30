@@ -32,7 +32,7 @@ module.exports = {
       parts: [{ id: 'x', type: 'list', correctList: ['-8', '2'] }],
     },
     {
-      prompt: 'Solve by completing the square.\\n\\n$$x^2 - 9x + \\\\tfrac{61}{4} = 0$$',
+      prompt: 'Solve by completing the square.\\n\\n$$x^2 - 9x + \\tfrac{61}{4} = 0$$',
       parts: [{ id: 'x', type: 'list', correctList: ['9/2+sqrt(5)', '9/2-sqrt(5)'] }],
     },
     {
