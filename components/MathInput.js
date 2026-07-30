@@ -6,9 +6,13 @@ let mathlivePromise = null;
 function loadMathLive() {
   if (!mathlivePromise) {
     mathlivePromise = import('mathlive').then((ML) => {
-      // Keep the on-screen math keyboard's toggle button visible so students
-      // who don't know LaTeX shortcuts can tap symbols instead of typing them.
-      ML.MathfieldElement.mathVirtualKeyboardPolicy = 'manual';
+      // 'auto': MathLive shows/hides its own on-screen keyboard as the field
+      // gains/loses focus, AND leaves the physical keyboard fully working.
+      // We previously drove this manually with 'manual' + onFocus/onBlur
+      // calling show()/hide() ourselves — that fought with the field's own
+      // focus handling and silently ate physical keystrokes. Let MathLive
+      // own this; it's built to support both input methods at once.
+      ML.MathfieldElement.mathVirtualKeyboardPolicy = 'auto';
       return ML;
     });
   }
@@ -70,13 +74,6 @@ export default function MathInput({ defaultValue, onChange, placeholder, disable
         ref={ref}
         class="math-field"
         placeholder={placeholder || 'Type your answer, e.g. sqrt(2) or x^2'}
-        math-virtual-keyboard-policy="manual"
-        onFocus={() => {
-          if (window.mathVirtualKeyboard) window.mathVirtualKeyboard.show();
-        }}
-        onBlur={() => {
-          if (window.mathVirtualKeyboard) window.mathVirtualKeyboard.hide();
-        }}
       ></math-field>
     </div>
   );

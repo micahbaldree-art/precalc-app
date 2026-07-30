@@ -262,6 +262,7 @@ export default function QuestionRunner() {
             <div>Score: {assignment.percent}% ({assignment.correctCount} of {assignment.totalQuestions})</div>
           </div>
           <div style={{ display: 'flex', gap: 10 }}>
+            <button className="btn secondary" onClick={() => router.push('/assignments')}>All assignments</button>
             <button className="btn secondary" onClick={() => router.push(`/assignments/${id}`)}>Back to assignment</button>
             <button className="btn" onClick={manualSave}>Save</button>
           </div>
