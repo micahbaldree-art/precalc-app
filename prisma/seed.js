@@ -11,6 +11,13 @@ const assignments = [
   require('./seedData/hw1_5'),
   require('./seedData/hw1_6'),
   require('./seedData/unit1review'),
+  require('./seedData/hw2_1'),
+  require('./seedData/hw2_2'),
+  require('./seedData/hw2_3'),
+  require('./seedData/hw2_4'),
+  require('./seedData/hw2_5'),
+  require('./seedData/hw2_6'),
+  require('./seedData/chapter2review'),
 ];
 
 async function seed() {
