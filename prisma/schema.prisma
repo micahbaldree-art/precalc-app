@@ -1,0 +1,62 @@
+// Prisma schema for the Pre-Calc homework site.
+// Using SQLite for local development. To go to production on Neon/Postgres,
+// change provider to "postgresql" and set DATABASE_URL to your Neon connection string —
+// no other code changes are needed.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  firstName    String
+  lastName     String
+  role         String   @default("student") // "student" | "teacher"
+  createdAt    DateTime @default(now())
+
+  answers Answer[]
+}
+
+model Assignment {
+  id         Int        @id @default(autoincrement())
+  title      String
+  order      Int        @default(0)
+  isAssigned Boolean    @default(false)
+  questions  Question[]
+}
+
+model Question {
+  id           Int        @id @default(autoincrement())
+  assignmentId Int
+  assignment   Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  order        Int
+  prompt       String // question text, may include LaTeX between $...$ and an optional inline SVG
+  svg          String? // optional inline SVG graphic (table, graph, etc.)
+  parts        String // JSON-encoded array of part definitions (see lib/answerCheck.js)
+
+  answers Answer[]
+
+  @@index([assignmentId])
+}
+
+model Answer {
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionId  Int
+  question    Question  @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  draft       String? // JSON-encoded current input per part (auto-saved as student types)
+  isCorrect   Boolean   @default(false)
+  submittedAt DateTime?
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([userId, questionId])
+  @@index([userId])
+}

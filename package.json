@@ -1,0 +1,27 @@
+{
+  "name": "precalc-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed": "node prisma/seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.2",
+    "dotenv": "^17.4.2",
+    "jsonwebtoken": "^9.0.3",
+    "mathjs": "^15.2.0",
+    "mathlive": "^0.110.0",
+    "next": "^14.2.35",
+    "pg": "^8.22.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
