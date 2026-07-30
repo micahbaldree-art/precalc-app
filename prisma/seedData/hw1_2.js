@@ -47,7 +47,7 @@ module.exports = {
     },
     {
       prompt: 'Describe how the graph of $$y=x^3$$ can be transformed to the graph of $$y=(0.8x)^3$$.',
-      parts: [{ id: 'mc', type: 'mc', choices: ['A horizontal shrink by a factor of 1/0.8.', 'A horizontal stretch by a factor of 1/0.8.'], correctIndex: 1 }],
+      parts: [{ id: 'mc', type: 'mc', choices: [{ text: 'A horizontal shrink by a factor of $$\\dfrac{1}{0.8}$$.' }, { text: 'A horizontal stretch by a factor of $$\\dfrac{1}{0.8}$$.' }], correctIndex: 1 }],
     },
     {
       prompt: 'Sketch the graphs of f, g, and h, then choose the matching graph for each.\\n\\n$$f(x) = \\sqrt[3]{x-4}$$\\n$$g(x) = 4\\sqrt[3]{x} + 1$$\\n$$h(x) = -\\sqrt[3]{x+9}$$',
