@@ -8,8 +8,14 @@ export default function Home() {
 
   useEffect(() => {
     if (user === undefined) return;
-    if (!user) return router.replace('/login');
-    if (user.role === 'teacher') return router.replace('/teacher/assignments');
+    if (!user) {
+      router.replace('/login');
+      return;
+    }
+    if (user.role === 'teacher') {
+      router.replace('/teacher/assignments');
+      return;
+    }
     router.replace('/assignments');
   }, [user, router]);
 

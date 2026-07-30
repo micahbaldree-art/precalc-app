@@ -112,7 +112,10 @@ export default function QuestionRunner() {
 
   useEffect(() => {
     if (user === undefined) return;
-    if (!user) return router.replace('/login');
+    if (!user) {
+      router.replace('/login');
+      return;
+    }
     load();
   }, [user, id, load]);
 

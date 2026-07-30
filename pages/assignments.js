@@ -12,7 +12,10 @@ export default function Assignments() {
 
   useEffect(() => {
     if (user === undefined) return;
-    if (!user) return router.replace('/login');
+    if (!user) {
+      router.replace('/login');
+      return;
+    }
     load(filter);
   }, [user, filter]);
 

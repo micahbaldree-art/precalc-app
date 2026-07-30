@@ -12,7 +12,10 @@ export default function AssignmentOverview() {
 
   useEffect(() => {
     if (user === undefined || !id) return;
-    if (!user) return router.replace('/login');
+    if (!user) {
+      router.replace('/login');
+      return;
+    }
     fetch(`/api/assignments/${id}`)
       .then(async (r) => {
         const d = await r.json();

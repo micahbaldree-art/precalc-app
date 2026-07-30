@@ -10,8 +10,14 @@ export default function Gradebook() {
 
   useEffect(() => {
     if (user === undefined) return;
-    if (!user) return router.replace('/login');
-    if (user.role !== 'teacher') return router.replace('/assignments');
+    if (!user) {
+      router.replace('/login');
+      return;
+    }
+    if (user.role !== 'teacher') {
+      router.replace('/assignments');
+      return;
+    }
     fetch('/api/teacher/gradebook').then((r) => r.json()).then(setData);
   }, [user]);
 
