@@ -20,24 +20,80 @@ module.exports = {
     {
       prompt: 'Find all of the zeros and write a linear factorization of the function.\\n\\n$$f(x)=x^4+x^3+2x^2-4x-24$$',
       parts: [
-        { id: 'zeros', type: 'list', label: 'Zeros', correctList: ['2', '-2', '-1/2+sqrt(23)*i/2', '-1/2-sqrt(23)*i/2'] },
-        { id: 'lf', type: 'expr', label: 'Linear factorization', correctAnswer: '(1/4)*(x-2)*(x+2)*(2*x+1-sqrt(23)*i)*(2*x+1+sqrt(23)*i)' },
+        {
+          id: 'zeros', type: 'mc', label: 'Zeros of the function',
+          choices: [
+            { text: '$$x=4,-2,\\dfrac{1}{2}+\\dfrac{\\sqrt{23}}{2}i,\\dfrac{1}{2}-\\dfrac{\\sqrt{23}}{2}i$$' },
+            { text: '$$x=2,-2,-\\dfrac{1}{2}+\\dfrac{\\sqrt{23}}{2}i,-\\dfrac{1}{2}-\\dfrac{\\sqrt{23}}{2}i$$' },
+            { text: '$$x=2,-2,\\dfrac{1}{2}+\\dfrac{\\sqrt{23}}{2}i,\\dfrac{1}{2}-\\dfrac{\\sqrt{23}}{2}i$$' },
+            { text: '$$x=4,-2,-\\dfrac{1}{2}+\\dfrac{\\sqrt{23}}{2}i,-\\dfrac{1}{2}-\\dfrac{\\sqrt{23}}{2}i$$' },
+          ],
+          correctIndex: 1,
+        },
+        {
+          id: 'lf', type: 'mc', label: 'Linear factorization',
+          choices: [
+            { text: '$$f(x)=\\dfrac{1}{2}(x-2)(x+2)\\left(x-1-\\sqrt{23}\\right)\\left(x-1+\\sqrt{23}\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{4}(x-2)(x+2)\\left(2x+1-\\sqrt{23}i\\right)\\left(2x+1+\\sqrt{23}i\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{4}(x-2)(x+2)\\left(x-1-\\sqrt{23}i\\right)\\left(x-1+\\sqrt{23}i\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{2}(x-2)(x+2)\\left(2x+1-\\sqrt{23}\\right)\\left(2x+1+\\sqrt{23}\\right)$$' },
+          ],
+          correctIndex: 1,
+        },
       ],
     },
     {
       prompt: 'Find all of the zeros and write a linear factorization of the function.\\n\\n$$f(x)=x^4+x^3+3x^2-4x-28$$',
       parts: [
-        { id: 'zeros', type: 'list', label: 'Zeros', correctList: ['2', '-2', '-1/2+sqrt(27)*i/2', '-1/2-sqrt(27)*i/2'] },
-        { id: 'lf', type: 'expr', label: 'Linear factorization', correctAnswer: '(1/4)*(x-2)*(x+2)*(2*x+1-sqrt(27)*i)*(2*x+1+sqrt(27)*i)' },
+        {
+          id: 'zeros', type: 'mc', label: 'Zeros of the function',
+          choices: [
+            { text: '$$x=2,-2,\\dfrac{1}{2}+\\dfrac{\\sqrt{27}}{2}i,\\dfrac{1}{2}-\\dfrac{\\sqrt{27}}{2}i$$' },
+            { text: '$$x=4,-2,-\\dfrac{1}{2}+\\dfrac{\\sqrt{27}}{2}i,-\\dfrac{1}{2}-\\dfrac{\\sqrt{27}}{2}i$$' },
+            { text: '$$x=4,-2,\\dfrac{1}{2}+\\dfrac{\\sqrt{27}}{2}i,\\dfrac{1}{2}-\\dfrac{\\sqrt{27}}{2}i$$' },
+            { text: '$$x=2,-2,-\\dfrac{1}{2}+\\dfrac{\\sqrt{27}}{2}i,-\\dfrac{1}{2}-\\dfrac{\\sqrt{27}}{2}i$$' },
+          ],
+          correctIndex: 3,
+        },
+        {
+          id: 'lf', type: 'mc', label: 'Linear factorization',
+          choices: [
+            { text: '$$f(x)=\\dfrac{1}{2}(x-2)(x+2)\\left(x-1-\\sqrt{27}\\right)\\left(x-1+\\sqrt{27}\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{4}(x-2)(x+2)\\left(2x+1-\\sqrt{27}i\\right)\\left(2x+1+\\sqrt{27}i\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{2}(x-2)(x+2)\\left(2x+1-\\sqrt{27}\\right)\\left(2x+1+\\sqrt{27}\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{4}(x-2)(x+2)\\left(x-1-\\sqrt{27}i\\right)\\left(x-1+\\sqrt{27}i\\right)$$' },
+          ],
+          correctIndex: 1,
+        },
       ],
     },
+
     {
-      prompt: 'Find all of the zeros and write a linear factorization of the function.\\n\\n$$f(x)=x^4+x^3+3x^2-4x-28$$',
+      prompt: 'Find all of the zeros and write a linear factorization of the function.\\n\\n$$f(x)=x^4-x^3-4x^2+9x-45$$',
       parts: [
-        { id: 'zeros', type: 'list', label: 'Zeros', correctList: ['2', '-2', '-1/2+sqrt(27)*i/2', '-1/2-sqrt(27)*i/2'] },
-        { id: 'lf', type: 'expr', label: 'Linear factorization', correctAnswer: '(1/4)*(x-2)*(x+2)*(2*x+1-sqrt(27)*i)*(2*x+1+sqrt(27)*i)' },
+        {
+          id: 'zeros', type: 'mc', label: 'Zeros of the function',
+          choices: [
+            { text: '$$x=3,-3,-\\dfrac{1}{2}+\\dfrac{\\sqrt{19}}{2}i,-\\dfrac{1}{2}-\\dfrac{\\sqrt{19}}{2}i$$' },
+            { text: '$$x=6,-3,\\dfrac{1}{2}+\\dfrac{\\sqrt{19}}{2}i,\\dfrac{1}{2}-\\dfrac{\\sqrt{19}}{2}i$$' },
+            { text: '$$x=6,-3,-\\dfrac{1}{2}+\\dfrac{\\sqrt{19}}{2}i,-\\dfrac{1}{2}-\\dfrac{\\sqrt{19}}{2}i$$' },
+            { text: '$$x=3,-3,\\dfrac{1}{2}+\\dfrac{\\sqrt{19}}{2}i,\\dfrac{1}{2}-\\dfrac{\\sqrt{19}}{2}i$$' },
+          ],
+          correctIndex: 3,
+        },
+        {
+          id: 'lf', type: 'mc', label: 'Linear factorization',
+          choices: [
+            { text: '$$f(x)=\\dfrac{1}{2}(x-3)(x+3)\\left(x+1-\\sqrt{19}\\right)\\left(x+1+\\sqrt{19}\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{4}(x-3)(x+3)\\left(2x-1-\\sqrt{19}i\\right)\\left(2x-1+\\sqrt{19}i\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{2}(x-3)(x+3)\\left(2x-1-\\sqrt{19}\\right)\\left(2x-1+\\sqrt{19}\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{4}(x-3)(x+3)\\left(x-1-\\sqrt{19}i\\right)\\left(x-1+\\sqrt{19}i\\right)$$' },
+          ],
+          correctIndex: 1,
+        },
       ],
     },
+
     {
       prompt: 'Find all of the zeros and write a linear factorization of the function.\\n\\n$$f(x)=x^3+16x-17$$',
       parts: [

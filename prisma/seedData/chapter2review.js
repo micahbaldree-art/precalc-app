@@ -33,7 +33,10 @@ module.exports = {
     },
     {
       prompt: 'Find all of the real zeros of the function.\\n\\n$$f(x)=5x^3-7x^2-15x+21$$',
-      parts: [{ id: 'zeros', type: 'list', label: 'Real zero(s)', correctList: ['7/5', 'sqrt(3)', '-sqrt(3)'] }],
+      parts: [
+        { id: 'rational', type: 'list', label: 'Rational zero(s) (leave blank if there are none)', correctList: ['7/5'] },
+        { id: 'irrational', type: 'list', label: 'Irrational zero(s) (leave blank if there are none)', correctList: ['sqrt(3)', '-sqrt(3)'] },
+      ],
     },
     {
       prompt: 'Let f be a polynomial function with f(-7) = 0. Which of the following statements is not true?',
@@ -91,6 +94,8 @@ module.exports = {
       parts: [
         { id: 'limpos', type: 'expr', label: 'lim f(x) as x→∞', correctAnswer: '-Infinity' },
         { id: 'limneg', type: 'expr', label: 'lim f(x) as x→-∞', correctAnswer: 'Infinity' },
+        { id: 'degree', type: 'expr', label: 'Degree of the polynomial, n =', correctAnswer: '3' },
+        { id: 'leadCoef', type: 'expr', label: 'Leading coefficient', correctAnswer: '-1' },
       ],
     },
     {
@@ -111,8 +116,26 @@ module.exports = {
     {
       prompt: 'Find all of the zeros and write a linear factorization of the function.\\n\\n$$f(x)=x^4+x^3+7x^2-x-8$$',
       parts: [
-        { id: 'zeros', type: 'list', label: 'Zeros', correctList: ['1', '-1', '-1/2+sqrt(31)*i/2', '-1/2-sqrt(31)*i/2'] },
-        { id: 'lf', type: 'expr', label: 'Linear factorization', correctAnswer: '(1/4)*(x-1)*(x+1)*(2*x+1-sqrt(31)*i)*(2*x+1+sqrt(31)*i)' },
+        {
+          id: 'zeros', type: 'mc', label: 'Zeros of the function',
+          choices: [
+            { text: '$$x=1,-1,\\dfrac{1}{2}+\\dfrac{31}{2}i,\\dfrac{1}{2}-\\dfrac{31}{2}i$$' },
+            { text: '$$x=1,-1,\\dfrac{1}{2}+\\dfrac{\\sqrt{31}}{2}i,\\dfrac{1}{2}-\\dfrac{\\sqrt{31}}{2}i$$' },
+            { text: '$$x=1,-1,-\\dfrac{1}{2}+\\dfrac{31}{2}i,-\\dfrac{1}{2}-\\dfrac{31}{2}i$$' },
+            { text: '$$x=1,-1,-\\dfrac{1}{2}+\\dfrac{\\sqrt{31}}{2}i,-\\dfrac{1}{2}-\\dfrac{\\sqrt{31}}{2}i$$' },
+          ],
+          correctIndex: 3,
+        },
+        {
+          id: 'lf', type: 'mc', label: 'Linear factorization',
+          choices: [
+            { text: '$$f(x)=\\dfrac{1}{2}(x-1)(x+1)\\left(x-1-\\sqrt{31}\\right)\\left(x-1+\\sqrt{31}\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{4}(x-1)(x+1)\\left(2x+1-\\sqrt{31}i\\right)\\left(2x+1+\\sqrt{31}i\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{2}(x-1)(x+1)\\left(2x+1-\\sqrt{31}\\right)\\left(2x+1+\\sqrt{31}\\right)$$' },
+            { text: '$$f(x)=\\dfrac{1}{4}(x-1)(x+1)\\left(x-1-\\sqrt{31}i\\right)\\left(x-1+\\sqrt{31}i\\right)$$' },
+          ],
+          correctIndex: 1,
+        },
       ],
     },
     {

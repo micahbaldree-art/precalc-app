@@ -179,12 +179,12 @@ questions.push({
 });
 // 30
 questions.push({
-  prompt: 'Find formulas for f/g and g/f. Give the domain of each.\\n\\n$$f(x)=x^2+8, g(x)=x$$',
+  prompt: 'Find formulas for f/g and g/f. Give the domain of each.\\n\\n$$f(x)=\\sqrt{x+8}, g(x)=x^2$$',
   parts: [
-    { id: 'fg', type: 'expr', label: 'f/g', correctAnswer: '(x^2+8)/x' },
-    { id: 'fgdom', type: 'interval', label: 'Domain of f/g', correctAnswer: '(-Infinity,0)U(0,Infinity)' },
-    { id: 'gf', type: 'expr', label: 'g/f', correctAnswer: 'x/(x^2+8)' },
-    { id: 'gfdom', type: 'interval', label: 'Domain of g/f', correctAnswer: '(-Infinity,Infinity)' },
+    { id: 'fg', type: 'expr', label: 'f/g', correctAnswer: 'sqrt(x+8)/x^2' },
+    { id: 'fgdom', type: 'interval', label: 'Domain of f/g', correctAnswer: '[-8,0)U(0,Infinity)' },
+    { id: 'gf', type: 'expr', label: 'g/f', correctAnswer: 'x^2/sqrt(x+8)' },
+    { id: 'gfdom', type: 'interval', label: 'Domain of g/f', correctAnswer: '(-8,Infinity)' },
   ],
 });
 // 31

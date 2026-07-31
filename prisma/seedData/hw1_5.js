@@ -13,14 +13,15 @@ module.exports = {
       ],
     },
     {
-      prompt: 'Find formulas for f/g and g/f. Give the domain of each.\\n\\n$$f(x)=x^3+9, g(x)=x$$',
+      prompt: 'Find formulas for f/g and g/f. Give the domain of each.\\n\\n$$f(x)=\\sqrt{x+9}, g(x)=x^3$$',
       parts: [
-        { id: 'fg', type: 'expr', label: 'f/g', correctAnswer: '(x^3+9)/x' },
-        { id: 'fgdom', type: 'interval', label: 'Domain of f/g', correctAnswer: '(-Infinity,0)U(0,Infinity)' },
-        { id: 'gf', type: 'expr', label: 'g/f', correctAnswer: 'x/(x^3+9)' },
-        { id: 'gfdom', type: 'interval', label: 'Domain of g/f', correctAnswer: '(-Infinity,-cbrt(9))U(-cbrt(9),Infinity)' },
+        { id: 'fg', type: 'expr', label: 'f/g', correctAnswer: 'sqrt(x+9)/x^3' },
+        { id: 'fgdom', type: 'interval', label: 'Domain of f/g', correctAnswer: '[-9,0)U(0,Infinity)' },
+        { id: 'gf', type: 'expr', label: 'g/f', correctAnswer: 'x^3/sqrt(x+9)' },
+        { id: 'gfdom', type: 'interval', label: 'Domain of g/f', correctAnswer: '(-9,Infinity)' },
       ],
     },
+
     {
       prompt: 'Find $$(f\\circ g)(5)$$ and $$(g\\circ f)(5)$$.\\n\\n$$f(x)=4x-1, g(x)=x^2+3$$',
       parts: [

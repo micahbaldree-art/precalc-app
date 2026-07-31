@@ -91,7 +91,10 @@ module.exports = {
     },
     {
       prompt: 'Find all of the real zeros of the function, giving exact values.\\n\\n$$f(x)=x^4-3x^3-7x^2+9x+12$$',
-      parts: [{ id: 'zeros', type: 'list', label: 'Real zero(s)', correctList: ['-1', '4', 'sqrt(3)', '-sqrt(3)'] }],
+      parts: [
+        { id: 'rational', type: 'list', label: 'Rational zero(s)', correctList: ['-1', '4'] },
+        { id: 'irrational', type: 'list', label: 'Irrational zero(s) (leave blank if there are none)', correctList: ['sqrt(3)', '-sqrt(3)'] },
+      ],
     },
   ],
 };

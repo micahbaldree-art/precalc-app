@@ -1,4 +1,4 @@
-const { functionGraphSvg } = require('../../lib/svgGraphs');
+const { functionGraphSvg, functionWithAsymptoteSvg } = require('../../lib/svgGraphs');
 
 module.exports = {
   title: 'HW 2.6 - Rational Functions',
@@ -84,22 +84,22 @@ module.exports = {
       parts: [
         { id: 'ebasym', type: 'expr', label: 'End behavior asymptote, y =', correctAnswer: 'x+3' },
         {
-          id: 'grapha', type: 'mc', label: '(a) Graph of f near its vertical asymptote (window [-20,20] by [-50,50])',
+          id: 'grapha', type: 'mc', label: '(a) Graph of f (solid) with its end-behavior asymptote (dashed) near the vertical asymptote (window [-20,20] by [-50,50])',
           choices: [
-            { svg: functionGraphSvg('(x^2-2*x+4)/(x-5)', { xMin: -20, xMax: 20, yMin: -50, yMax: 50, color: '#111827' }) },
-            { svg: functionGraphSvg('-(x^2-2*x+4)/(x-5)', { xMin: -20, xMax: 20, yMin: -50, yMax: 50, color: '#111827' }) },
-            { svg: functionGraphSvg('(x^2+2*x+4)/(x+5)', { xMin: -20, xMax: 20, yMin: -50, yMax: 50, color: '#111827' }) },
-            { svg: functionGraphSvg('(x^2-2*x+4)/(x+5)', { xMin: -20, xMax: 20, yMin: -50, yMax: 50, color: '#111827' }) },
+            { svg: functionWithAsymptoteSvg('(x^2-2*x+4)/(x-5)', 'x+3', { xMin: -20, xMax: 20, yMin: -50, yMax: 50 }) },
+            { svg: functionWithAsymptoteSvg('(x^2-2*x+4)/(x-5)', 'x-3', { xMin: -20, xMax: 20, yMin: -50, yMax: 50 }) },
+            { svg: functionWithAsymptoteSvg('-(x^2-2*x+4)/(x-5)', 'x+3', { xMin: -20, xMax: 20, yMin: -50, yMax: 50 }) },
+            { svg: functionWithAsymptoteSvg('(x^2-2*x+4)/(x-5)', 'x', { xMin: -20, xMax: 20, yMin: -50, yMax: 50 }) },
           ],
           correctIndex: 0,
         },
         {
-          id: 'graphb', type: 'mc', label: '(b) Graph of f resembling its end-behavior asymptote (window [-500,500] by [-500,500])',
+          id: 'graphb', type: 'mc', label: '(b) Graph of f (solid) with its end-behavior asymptote (dashed), zoomed out so f resembles the asymptote (window [-500,500] by [-500,500])',
           choices: [
-            { svg: functionGraphSvg('(x^2-2*x+4)/(x-5)', { xMin: -500, xMax: 500, yMin: -500, yMax: 500, color: '#111827' }) },
-            { svg: functionGraphSvg('-(x^2-2*x+4)/(x-5)', { xMin: -500, xMax: 500, yMin: -500, yMax: 500, color: '#111827' }) },
-            { svg: functionGraphSvg('x^2/500', { xMin: -500, xMax: 500, yMin: -500, yMax: 500, color: '#111827' }) },
-            { svg: functionGraphSvg('-x-3', { xMin: -500, xMax: 500, yMin: -500, yMax: 500, color: '#111827' }) },
+            { svg: functionWithAsymptoteSvg('(x^2-2*x+4)/(x-5)', 'x+3', { xMin: -500, xMax: 500, yMin: -500, yMax: 500 }) },
+            { svg: functionWithAsymptoteSvg('(x^2-2*x+4)/(x-5)', 'x-3', { xMin: -500, xMax: 500, yMin: -500, yMax: 500 }) },
+            { svg: functionWithAsymptoteSvg('-(x^2-2*x+4)/(x-5)', 'x+3', { xMin: -500, xMax: 500, yMin: -500, yMax: 500 }) },
+            { svg: functionWithAsymptoteSvg('(x^2-2*x+4)/(x-5)', 'x', { xMin: -500, xMax: 500, yMin: -500, yMax: 500 }) },
           ],
           correctIndex: 0,
         },
@@ -132,22 +132,22 @@ module.exports = {
       parts: [
         { id: 'ebasym', type: 'expr', label: 'End behavior asymptote, y =', correctAnswer: 'x^2-4*x+8' },
         {
-          id: 'grapha', type: 'mc', label: '(a) Graph of f near its vertical asymptote (window [-10,10] by [-80,80])',
+          id: 'grapha', type: 'mc', label: '(a) Graph of f (solid) with its end-behavior asymptote (dashed) near the vertical asymptote (window [-10,10] by [-80,80])',
           choices: [
-            { svg: functionGraphSvg('(x^3-2*x^2+5)/(x+2)', { xMin: -10, xMax: 10, yMin: -80, yMax: 80, color: '#2563eb' }) },
-            { svg: functionGraphSvg('-(x^3-2*x^2+5)/(x+2)', { xMin: -10, xMax: 10, yMin: -80, yMax: 80, color: '#2563eb' }) },
-            { svg: functionGraphSvg('(x^3+2*x^2+5)/(x-2)', { xMin: -10, xMax: 10, yMin: -80, yMax: 80, color: '#2563eb' }) },
-            { svg: functionGraphSvg('(x^3-2*x^2+5)/(x-2)', { xMin: -10, xMax: 10, yMin: -80, yMax: 80, color: '#2563eb' }) },
+            { svg: functionWithAsymptoteSvg('(x^3-2*x^2+5)/(x+2)', 'x^2-4*x+8', { xMin: -10, xMax: 10, yMin: -80, yMax: 80 }) },
+            { svg: functionWithAsymptoteSvg('(x^3-2*x^2+5)/(x+2)', 'x^2-4*x-8', { xMin: -10, xMax: 10, yMin: -80, yMax: 80 }) },
+            { svg: functionWithAsymptoteSvg('-(x^3-2*x^2+5)/(x+2)', 'x^2-4*x+8', { xMin: -10, xMax: 10, yMin: -80, yMax: 80 }) },
+            { svg: functionWithAsymptoteSvg('(x^3-2*x^2+5)/(x+2)', 'x^2', { xMin: -10, xMax: 10, yMin: -80, yMax: 80 }) },
           ],
           correctIndex: 0,
         },
         {
-          id: 'graphb', type: 'mc', label: '(b) Graph of f resembling its end-behavior asymptote (window [-50,50] by [-2500,2500])',
+          id: 'graphb', type: 'mc', label: '(b) Graph of f (solid) with its end-behavior asymptote (dashed), zoomed out so f resembles the asymptote (window [-50,50] by [-2500,2500])',
           choices: [
-            { svg: functionGraphSvg('(x^3-2*x^2+5)/(x+2)', { xMin: -50, xMax: 50, yMin: -2500, yMax: 2500, color: '#2563eb' }) },
-            { svg: functionGraphSvg('-(x^3-2*x^2+5)/(x+2)', { xMin: -50, xMax: 50, yMin: -2500, yMax: 2500, color: '#2563eb' }) },
-            { svg: functionGraphSvg('x^2-4*x-8', { xMin: -50, xMax: 50, yMin: -2500, yMax: 2500, color: '#2563eb' }) },
-            { svg: functionGraphSvg('x^3/2500', { xMin: -50, xMax: 50, yMin: -2500, yMax: 2500, color: '#2563eb' }) },
+            { svg: functionWithAsymptoteSvg('(x^3-2*x^2+5)/(x+2)', 'x^2-4*x+8', { xMin: -50, xMax: 50, yMin: -2500, yMax: 2500 }) },
+            { svg: functionWithAsymptoteSvg('(x^3-2*x^2+5)/(x+2)', 'x^2-4*x-8', { xMin: -50, xMax: 50, yMin: -2500, yMax: 2500 }) },
+            { svg: functionWithAsymptoteSvg('-(x^3-2*x^2+5)/(x+2)', 'x^2-4*x+8', { xMin: -50, xMax: 50, yMin: -2500, yMax: 2500 }) },
+            { svg: functionWithAsymptoteSvg('(x^3-2*x^2+5)/(x+2)', 'x^2', { xMin: -50, xMax: 50, yMin: -2500, yMax: 2500 }) },
           ],
           correctIndex: 0,
         },

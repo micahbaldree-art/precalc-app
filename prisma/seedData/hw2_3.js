@@ -21,20 +21,20 @@ module.exports = {
       ],
     },
     {
-      prompt: 'Graph the polynomial function, and locate its extrema and zeros (window [-4,5] by [-15,15]).\\n\\n$$f(x)=-x^4+12x$$\\n\\nChoose the correct graph, then give the local extremum and the zeros (rounded to two decimal places).',
+      prompt: 'Graph the polynomial function, and locate its extrema and zeros (window [-3,3] by [-10,10]).\\n\\n$$f(x)=-x^4+8x$$\\n\\nChoose the correct graph, then give the local extremum and the zeros (rounded to two decimal places).',
       parts: [
         {
           id: 'graph', type: 'mc', label: 'Correct graph',
           choices: [
-            { svg: functionGraphSvg('x^4-12*x', { xMin: -4, xMax: 5, yMin: -15, yMax: 15 }) },
-            { svg: functionGraphSvg('-x^4+12*x', { xMin: -4, xMax: 5, yMin: -15, yMax: 15 }) },
-            { svg: functionGraphSvg('-x^4-12*x', { xMin: -4, xMax: 5, yMin: -15, yMax: 15 }) },
-            { svg: functionGraphSvg('x^4+12*x', { xMin: -4, xMax: 5, yMin: -15, yMax: 15 }) },
+            { svg: functionGraphSvg('x^4-8*x', { xMin: -3, xMax: 3, yMin: -10, yMax: 10 }) },
+            { svg: functionGraphSvg('-x^4+8*x', { xMin: -3, xMax: 3, yMin: -10, yMax: 10 }) },
+            { svg: functionGraphSvg('-x^4-8*x', { xMin: -3, xMax: 3, yMin: -10, yMax: 10 }) },
+            { svg: functionGraphSvg('x^4+8*x', { xMin: -3, xMax: 3, yMin: -10, yMax: 10 }) },
           ],
           correctIndex: 1,
         },
-        { id: 'extremum', type: 'point', label: 'Local maximum (there is no local minimum)', correctPoints: [[1.44, 12.98]] },
-        { id: 'zeros', type: 'list', label: 'Zeros (x ≈)', correctList: ['0.00', '2.29'] },
+        { id: 'extremum', type: 'point', label: 'Local maximum (there is no local minimum)', correctPoints: [[1.26, 7.56]] },
+        { id: 'zeros', type: 'list', label: 'Zeros (x ≈)', correctList: ['0.00', '2.00'] },
       ],
     },
     {
@@ -110,6 +110,8 @@ module.exports = {
       parts: [
         { id: 'limpos', type: 'expr', label: 'lim f(x) as x→∞', correctAnswer: '-Infinity' },
         { id: 'limneg', type: 'expr', label: 'lim f(x) as x→-∞', correctAnswer: '-Infinity' },
+        { id: 'degree', type: 'expr', label: 'Degree of the polynomial, n =', correctAnswer: '4' },
+        { id: 'leadCoef', type: 'expr', label: 'Leading coefficient', correctAnswer: '-5' },
       ],
     },
     {
@@ -117,6 +119,8 @@ module.exports = {
       parts: [
         { id: 'limpos', type: 'expr', label: 'lim f(x) as x→∞', correctAnswer: '-Infinity' },
         { id: 'limneg', type: 'expr', label: 'lim f(x) as x→-∞', correctAnswer: 'Infinity' },
+        { id: 'degree', type: 'expr', label: 'Degree of the polynomial, n =', correctAnswer: '3' },
+        { id: 'leadCoef', type: 'expr', label: 'Leading coefficient', correctAnswer: '-1' },
       ],
     },
     {
