@@ -68,19 +68,18 @@ function PartInput({ part, value, onChange, disabled }) {
     );
   }
   if (part.type === 'interval' || part.type === 'point') {
-    const [text, setText] = useState(value || '');
     return (
-      <input
-        className="input"
-        style={{ maxWidth: 360 }}
-        value={text}
-        disabled={disabled}
-        placeholder={part.type === 'interval' ? 'e.g. (-infinity,-3]U[5,infinity)' : 'e.g. (3,-5)'}
-        onChange={(e) => {
-          setText(e.target.value);
-          onChange(e.target.value);
-        }}
-      />
+      <div>
+        <MathInput
+          defaultValue={value || ''}
+          onChange={onChange}
+          disabled={disabled}
+          placeholder={part.type === 'interval' ? 'e.g. (-infinity,-3]U[5,infinity)' : 'e.g. (3,-5)'}
+        />
+        <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: 4 }}>
+          {part.type === 'interval' ? 'Use parentheses/brackets, "U" for union, and the ∞ key for infinity.' : 'Enter as an ordered pair; separate multiple pairs with a comma.'}
+        </div>
+      </div>
     );
   }
   if (part.type === 'factor') {

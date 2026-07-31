@@ -63,7 +63,7 @@ questions.push({
 // 12
 questions.push({
   prompt: 'Describe how the graph of $$y=x^3$$ can be transformed to the graph of $$y=(0.8x)^3$$.',
-  parts: [{ id: 'mc', type: 'mc', choices: ['A horizontal stretch by a factor of 1/0.8.', 'A horizontal shrink by a factor of 1/0.8.'], correctIndex: 0 }],
+  parts: [{ id: 'mc', type: 'mc', choices: [{ text: 'A horizontal stretch by a factor of $$\\dfrac{1}{0.8}$$.' }, { text: 'A horizontal shrink by a factor of $$\\dfrac{1}{0.8}$$.' }], correctIndex: 0 }],
 });
 // 13
 questions.push({
@@ -123,7 +123,7 @@ questions.push({
 // 19
 questions.push({
   prompt: 'Given a function f, which of the following represents a horizontal stretch by a factor of 2?',
-  parts: [{ id: 'mc', type: 'mc', choices: [{ text: '$$\\dfrac{f(x)}{2}$$' }, { text: '$$f(x/2)$$' }, { text: '$$2f(x)$$' }, { text: '$$f(2x)$$' }], correctIndex: 1 }],
+  parts: [{ id: 'mc', type: 'mc', choices: [{ text: '$$\\dfrac{f(x)}{2}$$' }, { text: '$$f\\left(\\dfrac{x}{2}\\right)$$' }, { text: '$$2f(x)$$' }, { text: '$$f(2x)$$' }], correctIndex: 1 }],
 });
 // 20
 questions.push({ prompt: 'Solve.\\n\\n$$64x^2=49$$', parts: [{ id: 'x', type: 'list', correctList: ['7/8', '-7/8'] }] });
@@ -212,7 +212,7 @@ questions.push({
     { id: 'fog', type: 'expr', label: '(f∘g)(x)', correctAnswer: '7*x/(x-2)' },
     { id: 'gof', type: 'expr', label: '(g∘f)(x)', correctAnswer: '(1-2*x)/7' },
     { id: 'fogdom', type: 'mc', label: 'Domain of f∘g', choices: [{ text: '$$(-\\infty,2)\\cup(2,\\infty)$$' }, { text: '$$(-\\infty,0)\\cup(0,2)\\cup(2,\\infty)$$' }, { text: '$$(-\\infty,0)\\cup(0,\\infty)$$' }, { text: '$$(-\\infty,-2)\\cup(-2,0)\\cup(0,\\infty)$$' }], correctIndex: 1 },
-        { id: 'gofdom', type: 'mc', label: 'Domain of g∘f', choices: [{ text: '$$(-\\infty,0)\\cup(0,1/2)\\cup(1/2,\\infty)$$' }, { text: '$$(-\\infty,1/2)\\cup(1/2,\\infty)$$' }, { text: '$$(-\\infty,0)\\cup(0,\\infty)$$' }, { text: '$$(-\\infty,2)\\cup(2,\\infty)$$' }], correctIndex: 1 },
+        { id: 'gofdom', type: 'mc', label: 'Domain of g∘f', choices: [{ text: '$$(-\\infty,0)\\cup(0,\\dfrac{1}{2})\\cup(\\dfrac{1}{2},\\infty)$$' }, { text: '$$(-\\infty,\\dfrac{1}{2})\\cup(\\dfrac{1}{2},\\infty)$$' }, { text: '$$(-\\infty,0)\\cup(0,\\infty)$$' }, { text: '$$(-\\infty,2)\\cup(2,\\infty)$$' }], correctIndex: 1 },
   ],
 });
 // 34
@@ -272,15 +272,15 @@ questions.push({
 });
 // 39
 questions.push({
-  prompt: 'Identify the function that is not a continuous function.',
+  prompt: 'Identify the functions that are not continuous. Select all that apply.',
   parts: [{
-    id: 'mc', type: 'mc',
+    id: 'multi', type: 'multi',
     choices: [
       { text: '$$y=\\cos x+1$$' }, { text: '$$y=(x-1)^2$$' }, { text: '$$y=-\\dfrac{1}{x}$$' }, { text: '$$y=x^3+1$$' },
       { text: '$$y=int(x+1)$$' }, { text: '$$y=e^x-2$$' }, { text: '$$y=2-\\dfrac{4}{1+e^{-x}}$$' }, { text: '$$y=-x$$' },
       { text: '$$y=-\\sqrt{x}$$' }, { text: '$$y=|x|-2$$' }, { text: '$$y=-\\sin x$$' }, { text: '$$y=(x+2)^3$$' },
     ],
-    correctIndex: 4,
+    correctIndices: [2, 4],
   }],
 });
 // 40

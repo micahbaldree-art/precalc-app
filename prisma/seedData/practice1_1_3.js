@@ -73,7 +73,7 @@ module.exports = {
     },
     {
       prompt: 'Describe how the graph of $$y=x^3$$ can be transformed to the graph of $$y=(0.5x)^3$$.',
-      parts: [{ id: 'mc', type: 'mc', choices: ['A horizontal shrink by a factor of 1/0.5.', 'A horizontal stretch by a factor of 1/0.5.'], correctIndex: 1 }],
+      parts: [{ id: 'mc', type: 'mc', choices: [{ text: 'A horizontal shrink by a factor of $$\\dfrac{1}{0.5}$$.' }, { text: 'A horizontal stretch by a factor of $$\\dfrac{1}{0.5}$$.' }], correctIndex: 1 }],
     },
     {
       prompt: 'Describe how to transform the graph of f into the graph of g.\\n\\n$$f(x)=(x-7)^3, g(x)=-(x+7)^3$$',
@@ -105,6 +105,7 @@ module.exports = {
     },
     {
       prompt: 'Use the graph of $$y=f(x)$$ (an increasing line through the origin) to choose the graph of $$y=|f(x)|$$.',
+      svg: functionGraphSvg('x', { xMin: -10, xMax: 10, yMin: -10, yMax: 10 }),
       parts: [{
         id: 'mc', type: 'mc',
         choices: [
@@ -118,6 +119,7 @@ module.exports = {
     },
     {
       prompt: 'Refer to the graph of $$y=f(x)$$ (a downward hump through the origin area). Sketch the graph of $$y=-|f(x)|$$.',
+      svg: functionGraphSvg('-x^2+4', { xMin: -10, xMax: 10, yMin: -10, yMax: 10 }),
       parts: [{
         id: 'mc', type: 'mc',
         choices: [
@@ -140,7 +142,7 @@ module.exports = {
       prompt: 'The graph of $$y=-\\tfrac{1}{4}|x+3|+4$$ can be obtained from the graph of $$y=|x|$$ by which transformations?',
       parts: [
         { id: 'shift_h', type: 'mc', label: 'Horizontal shift', choices: ['3 units to the right', '3 units to the left', '4 units to the left', '4 units to the right'], correctIndex: 1 },
-        { id: 'stretch', type: 'mc', label: 'Stretch/shrink and reflection', choices: ['shrunk vertically by a factor of 1/4; reflected over the y-axis', 'stretched vertically by a factor of 4; reflected over the x-axis', 'stretched vertically by a factor of 4; reflected over the y-axis', 'shrunk vertically by a factor of 1/4; reflected over the x-axis'], correctIndex: 3 },
+        { id: 'stretch', type: 'mc', label: 'Stretch/shrink and reflection', choices: [{ text: 'shrunk vertically by a factor of $$\\dfrac{1}{4}$$; reflected over the y-axis' }, { text: 'stretched vertically by a factor of 4; reflected over the x-axis' }, { text: 'stretched vertically by a factor of 4; reflected over the y-axis' }, { text: 'shrunk vertically by a factor of $$\\dfrac{1}{4}$$; reflected over the x-axis' }], correctIndex: 3 },
         { id: 'shift_v', type: 'mc', label: 'Vertical shift', choices: ['3 units downward', '4 units upward', '4 units downward', '3 units upward'], correctIndex: 1 },
       ],
     },
@@ -150,7 +152,7 @@ module.exports = {
     },
     {
       prompt: 'Given a function f, which of the following represents a horizontal stretch by a factor of 2?',
-      parts: [{ id: 'mc', type: 'mc', choices: [{ text: '$$f(x/2)$$' }, { text: '$$f(2x)$$' }, { text: '$$2f(x)$$' }, { text: '$$f(x)/2$$' }], correctIndex: 0 }],
+      parts: [{ id: 'mc', type: 'mc', choices: [{ text: '$$f\\left(\\dfrac{x}{2}\\right)$$' }, { text: '$$f(2x)$$' }, { text: '$$2f(x)$$' }, { text: '$$\\dfrac{f(x)}{2}$$' }], correctIndex: 0 }],
     },
     {
       prompt: 'Solve.\\n\\n$$16x^2=9$$',
