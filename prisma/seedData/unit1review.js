@@ -314,8 +314,8 @@ questions.push({
   prompt: 'Use a graphing calculator to graph $$f(x)=\\ln(x-3)$$. Determine the domain and range by looking at the graph.',
   svg: functionGraphSvg('log(x-3)', { xMin: -2, xMax: 10, yMin: -6, yMax: 6 }),
   parts: [
-    { id: 'domain', type: 'interval', correctAnswer: '(3,Infinity)' },
-    { id: 'range', type: 'interval', correctAnswer: '(-Infinity,Infinity)' },
+    { id: 'domain', type: 'interval', label: 'Domain', correctAnswer: '(3,Infinity)' },
+    { id: 'range', type: 'interval', label: 'Range', correctAnswer: '(-Infinity,Infinity)' },
   ],
 });
 // 43

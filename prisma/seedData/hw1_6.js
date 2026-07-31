@@ -95,8 +95,8 @@ module.exports = {
       prompt: 'Use a graphing calculator to graph $$h(x)=4x^2+1$$ (window [-10,10] by [-10,10]), and determine its domain and range.',
       svg: functionGraphSvg('4*x^2+1', { xMin: -10, xMax: 10, yMin: -10, yMax: 10 }),
       parts: [
-        { id: 'domain', type: 'interval', correctAnswer: '(-Infinity,Infinity)' },
-        { id: 'range', type: 'interval', correctAnswer: '[1,Infinity)' },
+        { id: 'domain', type: 'interval', label: 'Domain', correctAnswer: '(-Infinity,Infinity)' },
+        { id: 'range', type: 'interval', label: 'Range', correctAnswer: '[1,Infinity)' },
       ],
     },
     {
