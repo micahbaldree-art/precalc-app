@@ -34,7 +34,7 @@ module.exports = {
       ],
     },
     {
-      prompt: 'Determine a formula for the exponential function whose values are given in the table.\\n\\n$$\\begin{array}{c|c} \\mathbf{x} & \\mathbf{f(x)} \\\\ -2 & 42 \\\\ -1 & 7 \\\\ 0 & \\dfrac{7}{6} \\\\ 1 & \\dfrac{7}{36} \\\\ 2 & \\dfrac{7}{216} \\end{array}$$',
+      prompt: 'Determine a formula for the exponential function whose values are given in the table.\\n\\n$$\\begin{array}{c|c} \\mathbf{x} & \\mathbf{f(x)} \\\\[8pt] -2 & 42 \\\\[8pt] -1 & 7 \\\\[8pt] 0 & \\dfrac{7}{6} \\\\[8pt] 1 & \\dfrac{7}{36} \\\\[8pt] 2 & \\dfrac{7}{216} \\end{array}$$',
       parts: [{ id: 'formula', type: 'expr', label: 'f(x) =', correctAnswer: '(7/6)*(1/6)^x' }],
     },
     {

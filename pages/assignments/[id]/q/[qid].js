@@ -275,7 +275,7 @@ export default function QuestionRunner() {
             <div style={{ marginTop: 20 }}>
               {question.parts.map((part) => (
                 <div className="part-block" key={`${qid}-${part.id}`}>
-                  {part.label && <div className="part-label">{part.label}</div>}
+                  {part.label && <div className="part-label"><MathText text={part.label} inline /></div>}
                   <PartInput part={part} value={question.draft ? question.draft[part.id] : undefined} onChange={(v) => updatePart(part.id, v)} disabled={isCorrect} />
                 </div>
               ))}

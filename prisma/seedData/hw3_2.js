@@ -25,7 +25,7 @@ module.exports = {
       parts: [
         {
           id: 'formula', type: 'mc',
-          choices: ['A = P(1 + r/k)^(kt)', 'A = Pe^(rt)', 'A = Pre^t', 'A = P(1 - r/k)^(kt)'],
+          choices: [{ text: '$$A=P\\left(1+\\dfrac{r}{k}\\right)^{kt}$$' }, { text: '$$A=Pe^{rt}$$' }, { text: '$$A=Pre^{t}$$' }, { text: '$$A=P\\left(1-\\dfrac{r}{k}\\right)^{kt}$$' }],
           correctIndex: 0,
         },
         { id: 'years', type: 'expr', label: 'years', correctAnswer: '8' },
@@ -37,7 +37,7 @@ module.exports = {
       parts: [
         {
           id: 'formula', type: 'mc',
-          choices: ['A = Pe^(rt)', 'A = Pre^t', 'A = P(1 - r/k)^(kt)', 'A = P(1 + r/k)^(kt)'],
+          choices: [{ text: '$$A=Pe^{rt}$$' }, { text: '$$A=Pre^{t}$$' }, { text: '$$A=P\\left(1-\\dfrac{r}{k}\\right)^{kt}$$' }, { text: '$$A=P\\left(1+\\dfrac{r}{k}\\right)^{kt}$$' }],
           correctIndex: 3,
         },
         { id: 'years', type: 'expr', label: 'years', correctAnswer: '22' },
@@ -55,7 +55,7 @@ module.exports = {
     {
       prompt: 'Jack is an actuary working for a corporate pension fund. He needs to have $12.5 million grow to $21 million in 8 years. What interest rate compounded annually does he need for this investment?\\n\\nWhich formula should be used if a principal P is invested at an annual interest rate r compounded annually for t years to give the value of investment A?',
       parts: [
-        { id: 'formula', type: 'mc', choices: ['A = P(1 - r)^n', 'A = P(1 + r)^n', 'A = Pre^t', 'A = Pe^(rt)'], correctIndex: 1 },
+        { id: 'formula', type: 'mc', choices: [{ text: '$$A=P(1-r)^n$$' }, { text: '$$A=P(1+r)^n$$' }, { text: '$$A=Pre^{t}$$' }, { text: '$$A=Pe^{rt}$$' }], correctIndex: 1 },
         { id: 'rate', type: 'expr', label: 'Rate (%)', correctAnswer: '6.700' },
       ],
     },
@@ -64,7 +64,7 @@ module.exports = {
       parts: [
         {
           id: 'formula', type: 'mc',
-          choices: ['A = P(1 + r/k)^(kt)', 'A = P(1 - r/k)^(kt)', 'A = Pe^(rt)', 'A = Pre^t'],
+          choices: [{ text: '$$A=P\\left(1+\\dfrac{r}{k}\\right)^{kt}$$' }, { text: '$$A=P\\left(1-\\dfrac{r}{k}\\right)^{kt}$$' }, { text: '$$A=Pe^{rt}$$' }, { text: '$$A=Pre^{t}$$' }],
           correctIndex: 0,
         },
         { id: 'years', type: 'expr', label: 'years', correctAnswer: '19' },

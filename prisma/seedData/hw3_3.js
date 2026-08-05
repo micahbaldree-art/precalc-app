@@ -11,19 +11,19 @@ module.exports = {
     },
     {
       prompt: 'Assuming c is a positive real number, use properties of logarithms to write the expression as a sum or difference of logarithms or multiples of logarithms. Expand the expression as far as possible.\\n\\n$$\\log_4\\left(c^3\\right)$$',
-      parts: [{ id: 'expand', type: 'expr', label: 'log_4(c^3) =', correctAnswer: '3*log(c,4)' }],
+      parts: [{ id: 'expand', type: 'expr', label: '$$\\log_4\\left(c^3\\right)=$$', correctAnswer: '3*log(c,4)' }],
     },
     {
       prompt: 'Rewrite as a sum or difference of multiples of logarithms without exponents. Assume x and y are positive real numbers. Expand the expression as far as possible.\\n\\n$$\\ln\\left(x^6y^3\\right)$$',
-      parts: [{ id: 'expand', type: 'expr', label: 'ln(x^6 y^3) =', correctAnswer: '6*log(x)+3*log(y)' }],
+      parts: [{ id: 'expand', type: 'expr', label: '$$\\ln\\left(x^6y^3\\right)=$$', correctAnswer: '6*log(x)+3*log(y)' }],
     },
     {
       prompt: 'Assuming x and y are positive, use properties of logarithms to write the expression as a sum or difference of logarithms or multiples of logarithms. Expand the expression as far as possible.\\n\\n$$\\ln\\dfrac{x^3}{y^5}$$',
-      parts: [{ id: 'expand', type: 'expr', label: 'ln(x^3/y^5) =', correctAnswer: '3*log(x)-5*log(y)' }],
+      parts: [{ id: 'expand', type: 'expr', label: '$$\\ln\\dfrac{x^3}{y^5}=$$', correctAnswer: '3*log(x)-5*log(y)' }],
     },
     {
       prompt: 'Use properties of logarithms to expand the logarithmic expression as much as possible. Assume a and b are positive real numbers.\\n\\n$$\\log_9\\dfrac{a}{b}$$',
-      parts: [{ id: 'expand', type: 'expr', label: 'log_9(a/b) =', correctAnswer: 'log(a,9)-log(b,9)' }],
+      parts: [{ id: 'expand', type: 'expr', label: '$$\\log_9\\dfrac{a}{b}=$$', correctAnswer: 'log(a,9)-log(b,9)' }],
     },
     {
       prompt: 'Assume y is positive and use properties of logarithms to write the expression as a single logarithm.\\n\\n$$\\ln y-\\ln9$$',
