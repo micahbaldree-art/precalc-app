@@ -126,10 +126,10 @@ module.exports = {
         {
           id: 'graph', type: 'mc', label: 'Correct number line graph',
           choices: [
-            { svg: numberLineSvg([{ left: -Infinity, right: -12, rightClosed: true }, { left: 4, right: Infinity, leftClosed: true }], { min: -20, max: 20, step: 4 }) },
-            { svg: numberLineSvg([{ left: -Infinity, right: 4, rightClosed: true }, { left: -4, right: Infinity, leftClosed: true }], { min: -20, max: 20, step: 4 }) },
-            { svg: numberLineSvg([{ left: -12, right: 4, leftClosed: true, rightClosed: true }], { min: -20, max: 20, step: 4 }) },
-            { svg: numberLineSvg([{ left: -Infinity, right: -4, rightClosed: true }, { left: 12, right: Infinity, leftClosed: true }], { min: -20, max: 20, step: 4 }) },
+            { svg: numberLineSvg([{ left: -Infinity, right: -12, rightClosed: true }, { left: 4, right: Infinity, leftClosed: true }], { min: -20, max: 20, step: 4 }), wide: true },
+            { svg: numberLineSvg([{ left: -Infinity, right: 4, rightClosed: true }, { left: -4, right: Infinity, leftClosed: true }], { min: -20, max: 20, step: 4 }), wide: true },
+            { svg: numberLineSvg([{ left: -12, right: 4, leftClosed: true, rightClosed: true }], { min: -20, max: 20, step: 4 }), wide: true },
+            { svg: numberLineSvg([{ left: -Infinity, right: -4, rightClosed: true }, { left: 12, right: Infinity, leftClosed: true }], { min: -20, max: 20, step: 4 }), wide: true },
           ],
           correctIndex: 0,
         },
@@ -168,10 +168,10 @@ module.exports = {
       ],
     },
     {
-      prompt: 'Find $$(f\\circ g)(0)$$ and $$(g\\circ f)(0)$$.\\n\\n$$f(x)=4x-1; g(x)=x^2-2$$',
+      prompt: 'Find $$(f\\circ g)(3)$$ and $$(g\\circ f)(3)$$.\\n\\n$$f(x)=-5x-1; g(x)=x^2+3$$',
       parts: [
-        { id: 'fg0', type: 'expr', label: '(f∘g)(0) =', correctAnswer: '-9' },
-        { id: 'gf0', type: 'expr', label: '(g∘f)(0) =', correctAnswer: '-1' },
+        { id: 'fg3', type: 'expr', label: '(f∘g)(3) =', correctAnswer: '-61' },
+        { id: 'gf3', type: 'expr', label: '(g∘f)(3) =', correctAnswer: '259' },
       ],
     },
     {

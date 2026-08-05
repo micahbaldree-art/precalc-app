@@ -23,7 +23,7 @@ module.exports = {
     },
     {
       prompt: 'Determine a formula for the exponential function whose values are given in the table.\\n\\n$$\\begin{array}{c|c} \\mathbf{x} & \\mathbf{f(x)} \\\\[8pt] -2 & 12 \\\\[8pt] -1 & 4 \\\\[8pt] 0 & \\dfrac{4}{3} \\\\[8pt] 1 & \\dfrac{4}{9} \\\\[8pt] 2 & \\dfrac{4}{27} \\end{array}$$',
-      parts: [{ id: 'formula', type: 'expr', label: 'f(x) =', correctAnswer: '4*(1/3)^x' }],
+      parts: [{ id: 'formula', type: 'expr', label: 'f(x) =', correctAnswer: '(4/3)*(1/3)^x' }],
     },
     {
       prompt: 'State whether the function is an exponential growth function or an exponential decay function, and describe its end behavior using limits.\\n\\n$$f(x)=\\left(\\dfrac{1}{2}\\right)^{3x}$$',

@@ -111,6 +111,7 @@ table.assign-table tr:hover td { background: #f8fafc; }
 .part-label { font-weight: 600; margin-bottom: 8px; }
 .choice-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; cursor: pointer; }
 .choice-row img, .choice-row .choice-svg { width: 140px; border: 1px solid #e2e8f0; border-radius: 6px; }
+.choice-row .choice-svg-wide { width: 340px; }
 .choice-row.selected { background: #eff6ff; border-radius: 6px; }
 
 .math-field { width: 100%; max-width: 360px; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px 10px; font-size: 1.05rem; }

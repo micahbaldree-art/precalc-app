@@ -7,7 +7,7 @@ import ZoomableSvg from '../../../../components/ZoomableSvg';
 
 function renderChoice(choice) {
   if (typeof choice === 'string') return <MathText text={choice} inline />;
-  if (choice.svg) return <div className="choice-svg" dangerouslySetInnerHTML={{ __html: choice.svg }} />;
+  if (choice.svg) return <div className={choice.wide ? 'choice-svg choice-svg-wide' : 'choice-svg'} dangerouslySetInnerHTML={{ __html: choice.svg }} />;
   if (choice.text) return <MathText text={choice.text} inline />;
   return null;
 }
