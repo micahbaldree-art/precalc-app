@@ -34,11 +34,11 @@ module.exports = {
       ],
     },
     {
-      prompt: 'Determine a formula for the exponential function whose values are given in the table.\\n\\n| x | f(x) |\\n|---|---|\\n| -2 | 42 |\\n| -1 | 7 |\\n| 0 | 7/6 |\\n| 1 | 7/36 |\\n| 2 | 7/216 |',
+      prompt: 'Determine a formula for the exponential function whose values are given in the table.\\n\\n$$\\begin{array}{c|c} \\mathbf{x} & \\mathbf{f(x)} \\\\ -2 & 42 \\\\ -1 & 7 \\\\ 0 & \\dfrac{7}{6} \\\\ 1 & \\dfrac{7}{36} \\\\ 2 & \\dfrac{7}{216} \\end{array}$$',
       parts: [{ id: 'formula', type: 'expr', label: 'f(x) =', correctAnswer: '(7/6)*(1/6)^x' }],
     },
     {
-      prompt: 'Describe how to transform the graph of f into the graph of g.\\n\\n$$f(x)=4^x \\\\qquad g(x)=4^{x+2}$$\\n\\nTo transform the graph of f into the graph of g, (1) ___ the graph across (2) ___, then (3) ___ the graph (4) ___.',
+      prompt: 'Describe how to transform the graph of f into the graph of g.\\n\\n$$f(x)=4^x \\qquad g(x)=4^{x+2}$$\\n\\nTo transform the graph of f into the graph of g, (1) ___ the graph across (2) ___, then (3) ___ the graph (4) ___.',
       parts: [
         { id: 'p1', type: 'mc', label: '(1)', choices: ['reflect', 'do not reflect'], correctIndex: 1 },
         { id: 'p2', type: 'mc', label: '(2)', choices: ['the x-axis', 'either axis', 'the y-axis'], correctIndex: 1 },
@@ -52,14 +52,14 @@ module.exports = {
       ],
     },
     {
-      prompt: 'Describe how to transform the graph of f into the graph of g.\\n\\n$$f(x)=2^x \\\\qquad g(x)=2^{-x}$$\\n\\nTo transform the graph of f into the graph of g, (1) ___ the graph across (2) ___.',
+      prompt: 'Describe how to transform the graph of f into the graph of g.\\n\\n$$f(x)=2^x \\qquad g(x)=2^{-x}$$\\n\\nTo transform the graph of f into the graph of g, (1) ___ the graph across (2) ___.',
       parts: [
         { id: 'p1', type: 'mc', label: '(1)', choices: ['reflect', 'do not reflect'], correctIndex: 0 },
         { id: 'p2', type: 'mc', label: '(2)', choices: ['the x-axis', 'the y-axis', 'either axis'], correctIndex: 1 },
       ],
     },
     {
-      prompt: 'State whether the function is an exponential growth function or an exponential decay function, and describe its end behavior using limits.\\n\\n$$f(x)=\\\\left(\\\\dfrac{1}{2}\\\\right)^{4x}$$',
+      prompt: 'State whether the function is an exponential growth function or an exponential decay function, and describe its end behavior using limits.\\n\\n$$f(x)=\\left(\\dfrac{1}{2}\\right)^{4x}$$',
       parts: [
         { id: 'type', type: 'mc', choices: ['Exponential growth', 'Exponential decay'], correctIndex: 1 },
         { id: 'liminf', type: 'expr', label: 'lim f(x) as x→∞', correctAnswer: '0' },
@@ -95,26 +95,26 @@ module.exports = {
           choices: [
             'True. Every exponential function is strictly increasing because the initial value must be greater than 0.',
             'True. Every exponential function is strictly increasing because the base of the exponent must be greater than 1.',
-            'False. If a > 0 and 0 < b < 1, then f(x) = a • b^x is decreasing.',
-            'False. If a > 0 and b > 1, then f(x) = a • b^x is decreasing.',
+            { text: 'False. If $$a>0$$ and $$0<b<1$$, then $$f(x)=a\\cdot b^x$$ is decreasing.' },
+            { text: 'False. If $$a>0$$ and $$b>1$$, then $$f(x)=a\\cdot b^x$$ is decreasing.' },
           ],
           correctIndex: 2,
         },
       ],
     },
     {
-      prompt: 'What is the growth factor for $$f(x)=4\\\\cdot3^x?$$',
+      prompt: 'What is the growth factor for $$f(x)=4\\cdot3^x?$$',
       parts: [{ id: 'mc', type: 'mc', choices: ['3', '64', '4', '12', '81'], correctIndex: 0 }],
     },
     {
-      prompt: 'Tell whether the function is an exponential growth function or an exponential decay function, and find the constant percentage rate of growth or decay for the function.\\n\\n$$f(x)=3.8\\\\cdot1.07^x$$',
+      prompt: 'Tell whether the function is an exponential growth function or an exponential decay function, and find the constant percentage rate of growth or decay for the function.\\n\\n$$f(x)=3.8\\cdot1.07^x$$',
       parts: [
         { id: 'type', type: 'mc', choices: ['Exponential decay', 'Exponential growth'], correctIndex: 1 },
         { id: 'rate', type: 'expr', label: 'Rate (%)', correctAnswer: '7' },
       ],
     },
     {
-      prompt: 'Tell whether the function is an exponential growth function or an exponential decay function, and find the constant percentage rate of growth or decay for the function.\\n\\n$$f(t)=245\\\\cdot4^t$$',
+      prompt: 'Tell whether the function is an exponential growth function or an exponential decay function, and find the constant percentage rate of growth or decay for the function.\\n\\n$$f(t)=245\\cdot4^t$$',
       parts: [
         { id: 'type', type: 'mc', choices: ['Exponential decay', 'Exponential growth'], correctIndex: 1 },
         { id: 'rate', type: 'expr', label: 'Rate (%)', correctAnswer: '300' },
@@ -129,7 +129,7 @@ module.exports = {
       parts: [{ id: 'year', type: 'expr', label: 'Year', correctAnswer: '2028' }],
     },
     {
-      prompt: 'What is the constant percentage growth rate of $$P(t)=1.49\\\\cdot1.017^t?$$',
+      prompt: 'What is the constant percentage growth rate of $$P(t)=1.49\\cdot1.017^t?$$',
       parts: [{ id: 'mc', type: 'mc', choices: ['1.49%', '49%', '1.7%', '17%', '4.9%'], correctIndex: 2 }],
     },
   ],
