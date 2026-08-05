@@ -7,7 +7,7 @@ module.exports = {
     },
     {
       prompt: 'Express as a difference of logarithms. Assume z is a positive real number.\\n\\n$$\\log\\dfrac{6}{z}$$',
-      parts: [{ id: 'expand', type: 'expr', label: 'log(6/z) =', correctAnswer: 'log10(6)-log10(z)' }],
+      parts: [{ id: 'expand', type: 'expr', label: '$$\\log\\dfrac{6}{z}=$$', correctAnswer: 'log10(6)-log10(z)' }],
     },
     {
       prompt: 'Assuming c is a positive real number, use properties of logarithms to write the expression as a sum or difference of logarithms or multiples of logarithms. Expand the expression as far as possible.\\n\\n$$\\log_4\\left(c^3\\right)$$',
@@ -27,7 +27,7 @@ module.exports = {
     },
     {
       prompt: 'Assume y is positive and use properties of logarithms to write the expression as a single logarithm.\\n\\n$$\\ln y-\\ln9$$',
-      parts: [{ id: 'combine', type: 'expr', label: 'ln y - ln 9 =', correctAnswer: 'log(y/9)' }],
+      parts: [{ id: 'combine', type: 'expr', label: '$$\\ln y-\\ln9=$$', correctAnswer: 'log(y/9)' }],
     },
     {
       prompt: 'Assuming x is a positive real number, use properties of logarithms to write the expression as a single logarithm.\\n\\n$$\\dfrac{1}{4}\\log x$$',
@@ -41,7 +41,7 @@ module.exports = {
     },
     {
       prompt: 'Assuming x and z are positive real numbers, use the properties of logarithms to write the expression as a single logarithm.\\n\\n$$4\\ln x+3\\ln z$$',
-      parts: [{ id: 'combine', type: 'expr', label: '4 ln x + 3 ln z =', correctAnswer: 'log(x^4*z^3)' }],
+      parts: [{ id: 'combine', type: 'expr', label: '$$4\\ln x+3\\ln z=$$', correctAnswer: 'log(x^4*z^3)' }],
     },
     {
       prompt: 'Assuming x, y, and z are positive real numbers, use properties of logarithms to write the expression as a single logarithm.\\n\\n$$10\\log(xy)-9\\log(yz)$$',
