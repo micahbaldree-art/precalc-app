@@ -22,6 +22,10 @@ const assignments = [
   require('./seedData/hw3_2'),
   require('./seedData/hw3_3'),
   require('./seedData/hw3_4'),
+  require('./seedData/benchmarkunit1'),
+  require('./seedData/benchmarkunit2'),
+  require('./seedData/benchmarkunit3'),
+  require('./seedData/benchmarkallunits'),
 ];
 
 async function seed() {
