@@ -50,8 +50,8 @@ module.exports = {
       parts: [{ id: 'x', type: 'expr', label: 'x ≈', correctAnswer: '2.729' }],
     },
     {
-      prompt: 'Solve the equation by the method of your choice. Support your solution by a second method. Round to the nearest thousandths.\\n\\n$$\\dfrac{e^x+e^{-x}}{2}=6$$',
-      parts: [{ id: 'x', type: 'list', label: 'x ≈', correctList: ['2.478', '-2.478'] }],
+      prompt: 'Solve the equation by the method of your choice. Support your solution by a second method. Round to the nearest thousandths.\\n\\n$$\\dfrac{e^x+e^{-x}}{2}=8$$',
+      parts: [{ id: 'x', type: 'list', label: 'x ≈', correctList: ['2.769', '-2.769'] }],
     },
     {
       prompt: 'Solve the equation.\\n\\n$$\\ln(x-8)+\\ln(x+18)=3\\ln3$$',
