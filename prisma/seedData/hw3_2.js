@@ -28,8 +28,8 @@ module.exports = {
           choices: [{ text: '$$A=P\\left(1+\\dfrac{r}{k}\\right)^{kt}$$' }, { text: '$$A=Pe^{rt}$$' }, { text: '$$A=Pre^{t}$$' }, { text: '$$A=P\\left(1-\\dfrac{r}{k}\\right)^{kt}$$' }],
           correctIndex: 0,
         },
-        { id: 'years', type: 'expr', label: 'years', correctAnswer: '8' },
-        { id: 'months', type: 'mc', label: 'months (1)', choices: ['3', '6', '9', '0'], correctIndex: 1 },
+        { id: 'years', type: 'expr', label: 'It will take ___ years', correctAnswer: '8' },
+        { id: 'months', type: 'mc', label: 'and ___ months', choices: ['3', '6', '9', '0'], correctIndex: 1 },
       ],
     },
     {
@@ -40,9 +40,9 @@ module.exports = {
           choices: [{ text: '$$A=Pe^{rt}$$' }, { text: '$$A=Pre^{t}$$' }, { text: '$$A=P\\left(1-\\dfrac{r}{k}\\right)^{kt}$$' }, { text: '$$A=P\\left(1+\\dfrac{r}{k}\\right)^{kt}$$' }],
           correctIndex: 3,
         },
-        { id: 'years', type: 'expr', label: 'years', correctAnswer: '22' },
+        { id: 'years', type: 'expr', label: 'It will take ___ years', correctAnswer: '22' },
         {
-          id: 'months', type: 'mc', label: 'months (1)',
+          id: 'months', type: 'mc', label: 'and ___ months',
           choices: ['5', '10', '9', '11', '8', '6', '3', '4', '1', '2', '0', '7'],
           correctIndex: 8,
         },
@@ -56,7 +56,7 @@ module.exports = {
       prompt: 'Jack is an actuary working for a corporate pension fund. He needs to have $12.5 million grow to $21 million in 8 years. What interest rate compounded annually does he need for this investment?\\n\\nWhich formula should be used if a principal P is invested at an annual interest rate r compounded annually for t years to give the value of investment A?',
       parts: [
         { id: 'formula', type: 'mc', choices: [{ text: '$$A=P(1-r)^n$$' }, { text: '$$A=P(1+r)^n$$' }, { text: '$$A=Pre^{t}$$' }, { text: '$$A=Pe^{rt}$$' }], correctIndex: 1 },
-        { id: 'rate', type: 'expr', label: 'Rate (%)', correctAnswer: '6.700' },
+        { id: 'rate', type: 'expr', label: 'The interest rate would be ___%', correctAnswer: '6.700' },
       ],
     },
     {
@@ -67,15 +67,15 @@ module.exports = {
           choices: [{ text: '$$A=P\\left(1+\\dfrac{r}{k}\\right)^{kt}$$' }, { text: '$$A=P\\left(1-\\dfrac{r}{k}\\right)^{kt}$$' }, { text: '$$A=Pe^{rt}$$' }, { text: '$$A=Pre^{t}$$' }],
           correctIndex: 0,
         },
-        { id: 'years', type: 'expr', label: 'years', correctAnswer: '19' },
-        { id: 'months', type: 'mc', label: 'months (1)', choices: ['3', '9', '0', '6'], correctIndex: 0 },
+        { id: 'years', type: 'expr', label: 'It will take ___ years', correctAnswer: '19' },
+        { id: 'months', type: 'mc', label: 'and ___ months', choices: ['3', '9', '0', '6'], correctIndex: 0 },
       ],
     },
     {
-      prompt: 'Complete the table about doubling time of an investment.\\n\\nAPR 7.4%, compounded Quarterly.',
+      prompt: 'Complete the table about doubling time of an investment.\\n\\n$$\\begin{array}{c|c|c} \\mathbf{APR} & \\mathbf{Compounding\\ Periods} & \\mathbf{Time\\ to\\ double} \\\\[8pt] 7.4\\% & \\text{Quarterly} & ? \\end{array}$$',
       parts: [
-        { id: 'years', type: 'expr', label: 'years', correctAnswer: '9' },
-        { id: 'months', type: 'mc', label: 'months (1)', choices: ['0', '3', '6', '9'], correctIndex: 2 },
+        { id: 'years', type: 'expr', label: 'It will take ___ years', correctAnswer: '9' },
+        { id: 'months', type: 'mc', label: 'and ___ months', choices: ['0', '3', '6', '9'], correctIndex: 2 },
       ],
     },
     {
