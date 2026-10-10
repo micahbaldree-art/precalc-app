@@ -113,7 +113,7 @@ module.exports = {
     },
     {
       prompt: 'Solve the equation by changing it to exponential form.\\n\\n$$\\log x=-6$$',
-      parts: [{ id: 'x', type: 'expr', label: 'x =', correctAnswer: '0.000001' }],
+      parts: [{ id: 'x', type: 'expr', label: 'x =', correctAnswer: '0.000001', tol: 1e-9 }],
     },
     {
       prompt: 'Assuming z is a positive real number, use properties of logarithms to write the expression as a sum or difference of logarithms or multiples of logarithms. Expand the expression as far as possible.\\n\\n$$\\ln(49z)$$',
