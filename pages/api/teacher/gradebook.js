@@ -1,5 +1,6 @@
 const db = require('../../../lib/db');
 const { getUserFromReq } = require('../../../lib/auth');
+const { chapterOf } = require('../../../lib/chapters');
 
 export default async function handler(req, res) {
   await db.ensureSchema();
@@ -20,7 +21,7 @@ export default async function handler(req, res) {
   const rows = await db.all(
     `SELECT answer.user_id as user_id, question.assignment_id as assignment_id, COUNT(*) as c
      FROM answer JOIN question ON question.id = answer.question_id
-     WHERE answer.is_correct = TRUE
+     WHERE (answer.ever_correct = TRUE OR answer.is_correct = TRUE)
      GROUP BY answer.user_id, question.assignment_id`
   );
   const correctCount = {};
@@ -64,7 +65,9 @@ export default async function handler(req, res) {
   });
 
   res.status(200).json({
-    assignments: assignments.map((a) => ({ id: a.id, title: a.title })),
+    assignments: assignments.map((a) => ({ id: a.id, title: a.title, chapter: chapterOf(a.title) })),
+    // Filter options, in the order the chapters first appear in the course.
+    chapters: [...new Set(assignments.map((a) => chapterOf(a.title)))],
     classAverages,
     students: studentRows,
   });

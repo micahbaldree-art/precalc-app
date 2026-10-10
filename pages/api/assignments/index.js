@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     const correctCount = (await db.get(
       `SELECT COUNT(*) as c FROM answer
        JOIN question ON question.id = answer.question_id
-       WHERE question.assignment_id = ? AND answer.user_id = ? AND answer.is_correct = TRUE`,
+       WHERE question.assignment_id = ? AND answer.user_id = ? AND (answer.ever_correct = TRUE OR answer.is_correct = TRUE)`,
       [a.id, user.id]
     )).c;
     const total = Number(totalQuestions);

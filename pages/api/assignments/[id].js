@@ -24,11 +24,17 @@ export default async function handler(req, res) {
     : [];
   const answerByQuestion = {};
   answers.forEach((a) => {
-    answerByQuestion[a.question_id] = { draft: a.draft ? JSON.parse(a.draft) : null, isCorrect: !!a.is_correct };
+    answerByQuestion[a.question_id] = {
+      draft: a.draft ? JSON.parse(a.draft) : null,
+      isCorrect: !!a.is_correct,
+      // Grade credit: a question counts once it has EVER been answered correctly,
+      // even if an assignment reset has since cleared the current answer.
+      everCorrect: !!a.ever_correct || !!a.is_correct,
+    };
   });
 
   const totalQuestions = questions.length;
-  const correctCount = questions.filter((q) => answerByQuestion[q.id]?.isCorrect).length;
+  const correctCount = questions.filter((q) => answerByQuestion[q.id]?.everCorrect).length;
   const percent = totalQuestions === 0 ? 0 : Math.round((correctCount / totalQuestions) * 100);
 
   res.status(200).json({
@@ -37,6 +43,7 @@ export default async function handler(req, res) {
       ...sanitizeQuestion({ id: q.id, order: q.position, prompt: q.prompt, svg: q.svg, parts: q.parts }),
       draft: answerByQuestion[q.id]?.draft || null,
       isCorrect: answerByQuestion[q.id]?.isCorrect || false,
+      everCorrect: answerByQuestion[q.id]?.everCorrect || false,
     })),
   });
 }

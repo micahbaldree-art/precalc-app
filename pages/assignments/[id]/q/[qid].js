@@ -4,6 +4,7 @@ import { useUser } from '../../../../lib/useUser';
 import MathInput from '../../../../components/MathInput';
 import MathText from '../../../../components/MathText';
 import ZoomableSvg from '../../../../components/ZoomableSvg';
+import ResetAssignmentButton from '../../../../components/ResetAssignmentButton';
 
 function renderChoice(choice) {
   if (typeof choice === 'string') return <MathText text={choice} inline />;
@@ -233,10 +234,10 @@ export default function QuestionRunner() {
         {questions.map((q, i) => (
           <div
             key={q.id}
-            className={`qlink ${String(q.id) === String(qid) ? 'active' : ''} ${q.isCorrect ? 'correct' : ''}`}
+            className={`qlink ${String(q.id) === String(qid) ? 'active' : ''} ${q.everCorrect ? 'correct' : ''}`}
             onClick={() => router.push(`/assignments/${id}/q/${q.id}`)}
           >
-            <span>{q.isCorrect ? '✓' : '○'}</span> Question {i + 1}
+            <span>{q.everCorrect ? '✓' : '○'}</span> Question {i + 1}
           </div>
         ))}
       </div>
@@ -263,6 +264,15 @@ export default function QuestionRunner() {
           <div style={{ display: 'flex', gap: 10 }}>
             <button className="btn secondary" onClick={() => router.push('/assignments')}>All assignments</button>
             <button className="btn secondary" onClick={() => router.push(`/assignments/${id}`)}>Back to assignment</button>
+            <ResetAssignmentButton
+              assignmentId={id}
+              onBeforeReset={() => {
+                // Cancel any pending autosave so it can't write old answers back after the wipe.
+                clearTimeout(saveTimer.current);
+                draftRef.current = {};
+              }}
+              onDone={() => router.push(`/assignments/${id}`)}
+            />
             <button className="btn" onClick={manualSave}>Save</button>
           </div>
         </div>
@@ -271,6 +281,12 @@ export default function QuestionRunner() {
           <div className="card">
             <MathText text={question.prompt} />
             {question.svg && <ZoomableSvg svg={question.svg} />}
+
+            {question.everCorrect && !isCorrect && (
+              <div className="prev-correct">
+                ✓ You answered this question correctly before. Answering it again won't change your grade.
+              </div>
+            )}
 
             <div style={{ marginTop: 20 }}>
               {question.parts.map((part) => (

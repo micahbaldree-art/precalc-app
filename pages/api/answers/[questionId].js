@@ -21,11 +21,14 @@ export default async function handler(req, res) {
   const existing = await db.get('SELECT * FROM answer WHERE user_id = ? AND question_id = ?', [user.id, questionId]);
 
   let isCorrect = existing ? !!existing.is_correct : false;
+  // ever_correct never goes back to false: it is what the grade is built from.
+  let everCorrect = existing ? !!existing.ever_correct || !!existing.is_correct : false;
   let justSubmitted = false;
 
   if (submit) {
     const parts = JSON.parse(question.parts);
     isCorrect = checkQuestion(parts, draft || {});
+    if (isCorrect) everCorrect = true;
     justSubmitted = true;
   }
 
@@ -33,14 +36,14 @@ export default async function handler(req, res) {
 
   if (existing) {
     await db.run(
-      `UPDATE answer SET draft = ?, is_correct = ?, submitted_at = ?, updated_at = NOW()
+      `UPDATE answer SET draft = ?, is_correct = ?, ever_correct = ?, submitted_at = ?, updated_at = NOW()
        WHERE user_id = ? AND question_id = ?`,
-      [draftStr, isCorrect, justSubmitted ? new Date().toISOString() : existing.submitted_at, user.id, questionId]
+      [draftStr, isCorrect, everCorrect, justSubmitted ? new Date().toISOString() : existing.submitted_at, user.id, questionId]
     );
   } else {
     await db.run(
-      `INSERT INTO answer (user_id, question_id, draft, is_correct, submitted_at) VALUES (?, ?, ?, ?, ?)`,
-      [user.id, questionId, draftStr, isCorrect, justSubmitted ? new Date().toISOString() : null]
+      `INSERT INTO answer (user_id, question_id, draft, is_correct, ever_correct, submitted_at) VALUES (?, ?, ?, ?, ?, ?)`,
+      [user.id, questionId, draftStr, isCorrect, everCorrect, justSubmitted ? new Date().toISOString() : null]
     );
   }
 
