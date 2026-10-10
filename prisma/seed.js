@@ -32,25 +32,69 @@ const assignments = [
 async function seed() {
   await db.ensureSchema();
 
-  await db.run('DELETE FROM answer');
-  await db.run('DELETE FROM question');
-  await db.run('DELETE FROM assignment');
+  // DEFAULT (safe): add and update content in place. Nothing a student has done
+  // is deleted, and each assignment's "assigned" switch keeps its setting.
+  // `node prisma/seed.js --reset` restores the old behaviour of wiping every
+  // answer, question and assignment first (use only on a fresh/test database).
+  const reset = process.argv.includes('--reset');
+  if (reset) {
+    console.log('--reset: deleting ALL answers, questions and assignments first.');
+    await db.run('DELETE FROM answer');
+    await db.run('DELETE FROM question');
+    await db.run('DELETE FROM assignment');
+  }
 
+  const changed = [];
   for (let aIdx = 0; aIdx < assignments.length; aIdx++) {
     const a = assignments[aIdx];
-    const result = await db.run('INSERT INTO assignment (title, position, is_assigned) VALUES (?, ?, FALSE) RETURNING id', [a.title, aIdx + 1]);
-    const assignmentId = result.rows[0].id;
+    let row = await db.get('SELECT id FROM assignment WHERE title = ?', [a.title]);
+    let created = false;
+    if (!row) {
+      const result = await db.run('INSERT INTO assignment (title, position, is_assigned) VALUES (?, ?, FALSE) RETURNING id', [a.title, aIdx + 1]);
+      row = { id: result.rows[0].id };
+      created = true;
+    } else {
+      await db.run('UPDATE assignment SET position = ? WHERE id = ?', [aIdx + 1, row.id]);
+    }
+    const assignmentId = row.id;
+
+    const existing = await db.all('SELECT id, position, prompt, svg, parts FROM question WHERE assignment_id = ? ORDER BY position ASC', [assignmentId]);
+    const byPos = new Map(existing.map((e) => [Number(e.position), e]));
+    let added = 0, updated = 0, removed = 0;
+
     for (let qIdx = 0; qIdx < a.questions.length; qIdx++) {
       const q = a.questions[qIdx];
-      await db.run('INSERT INTO question (assignment_id, position, prompt, svg, parts) VALUES (?, ?, ?, ?, ?)', [
-        assignmentId,
-        qIdx + 1,
-        q.prompt,
-        q.svg || null,
-        JSON.stringify(q.parts),
-      ]);
+      const pos = qIdx + 1;
+      const parts = JSON.stringify(q.parts);
+      const svg = q.svg || null;
+      const old = byPos.get(pos);
+      if (!old) {
+        await db.run('INSERT INTO question (assignment_id, position, prompt, svg, parts) VALUES (?, ?, ?, ?, ?)', [assignmentId, pos, q.prompt, svg, parts]);
+        added++;
+      } else if (old.prompt !== q.prompt || (old.svg || null) !== svg || old.parts !== parts) {
+        // Same question id, so students' saved answers stay attached to it.
+        await db.run('UPDATE question SET prompt = ?, svg = ?, parts = ? WHERE id = ?', [q.prompt, svg, parts, old.id]);
+        updated++;
+        changed.push(`${a.title} #${pos}`);
+      }
     }
-    console.log(`Seeded "${a.title}" with ${a.questions.length} questions.`);
+    // Questions that no longer exist in the seed data (the assignment shrank).
+    for (const e of existing) {
+      if (Number(e.position) > a.questions.length) {
+        await db.run('DELETE FROM question WHERE id = ?', [e.id]);
+        removed++;
+      }
+    }
+    const note = created ? 'NEW' : (added || updated || removed ? 'changed' : 'unchanged');
+    console.log(`${note.padEnd(9)} "${a.title}" — ${a.questions.length} questions (added ${added}, updated ${updated}, removed ${removed}).`);
+  }
+
+  const known = new Set(assignments.map((x) => x.title));
+  const orphans = await db.all('SELECT title FROM assignment');
+  orphans.filter((o) => !known.has(o.title)).forEach((o) => console.log(`NOTE: "${o.title}" is in the database but not in the seed data; left untouched.`));
+  if (changed.length) {
+    console.log(`\nContent changed on ${changed.length} existing question(s). Students' saved answers on these were KEPT, so any credit already earned stands:`);
+    changed.forEach((c) => console.log('  - ' + c));
   }
 
   const teacherEmail = process.env.TEACHER_EMAIL || 'teacher@example.com';
