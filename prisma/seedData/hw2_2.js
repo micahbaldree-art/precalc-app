@@ -6,7 +6,7 @@ module.exports = {
       parts: [{ id: 'ans', type: 'expr', correctAnswer: '9+8*i' }],
     },
     {
-      prompt: 'Write the difference in standard form a + bi without using a calculator.\\n\\n$$(i^3+7)-(9-i^2)$$',
+      prompt: 'Write the difference in standard form a + bi without using a calculator.\\n\\n$$(i^3+7)-(9+i^2)$$',
       parts: [{ id: 'ans', type: 'expr', correctAnswer: '-1-i' }],
     },
     {
