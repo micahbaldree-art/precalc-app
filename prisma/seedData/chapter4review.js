@@ -114,6 +114,7 @@ Let x be the distance between the base of the lighthouse and the buoy. Write a t
         vertexLabels: { A: 'A', B: 'B', C: 'C' },
         sideLabels: { BA: '6', BC: 'a', CA: 'b' },
         angleLabels: { C: '85°', B: '45°' },
+        nudge: { angle: { B: [8, -6] } },
       }),
       parts: [
         { id: 'A', type: 'expr', label: R`Determine the value of A. $$A=$$ ___° (Round to the nearest whole number as needed.)`, correctAnswer: '50' },
@@ -129,7 +130,10 @@ Let x be the distance between the base of the lighthouse and the buoy. Write a t
         vertexLabels: { T: 'The Platform' },
         sideLabels: { PQ: '1200-yard beach' },
         angleLabels: { P: '83°', Q: '75°' },
-        w: 340,
+        stretch: [2.4, 1],
+        angleDist: 52,
+        w: 380,
+        h: 260,
       }),
       parts: [
         { id: 'far', type: 'expr', label: 'The platform is about ___ yards from one end of the beach (the larger distance) (Use descending order. Round to three decimal places as needed.)', correctAnswer: '3179.483' },
