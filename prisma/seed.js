@@ -27,6 +27,15 @@ const assignments = [
   require('./seedData/benchmarkunit2'),
   require('./seedData/benchmarkunit3'),
   require('./seedData/benchmarkallunits'),
+  require('./seedData/hw4_1'),
+  require('./seedData/hw4_2'),
+  require('./seedData/hw4_3'),
+  require('./seedData/hw4_4'),
+  require('./seedData/chapter4review'),
+  require('./seedData/hw5_1'),
+  require('./seedData/hw5_2'),
+  require('./seedData/chapter5review'),
+  require('./seedData/chapter5review_part2'),
 ];
 
 async function seed() {

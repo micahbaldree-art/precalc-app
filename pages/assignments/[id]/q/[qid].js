@@ -60,7 +60,8 @@ function PartInput({ part, value, onChange, disabled }) {
       </div>
     );
   }
-  if (part.type === 'expr' || part.type === 'list') {
+  // 'equation' parts (e.g. x = 120 / tan 13) are typed in the same math box as expressions.
+  if (part.type === 'expr' || part.type === 'list' || part.type === 'equation') {
     return (
       <div>
         <MathInput defaultValue={value || ''} onChange={onChange} disabled={disabled} />
