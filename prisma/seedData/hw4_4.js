@@ -23,7 +23,7 @@ const IV6 = R`\left(\dfrac{\pi}{2},\dfrac{5\pi}{6}\right)`;
 const IV7 = R`\left(\dfrac{5\pi}{3},2\pi\right)`;
 
 module.exports = {
-  title: 'HW 4.4 - Trigonometric Functions of Any Angle',
+  title: 'HW 4.4 - Unit Circle',
   questions: [
     // 1
     {

@@ -9,7 +9,7 @@ const dms = (a, b, c) => [
 ];
 
 module.exports = {
-  title: 'HW 4.3 - Radian Measure and Circular Motion',
+  title: 'HW 4.3 - Radians and Sketching',
   questions: [
     // 1
     {

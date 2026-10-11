@@ -9,7 +9,7 @@ const fn = (name) => '$$' + '\\' + name + R`\theta=$$`;
 const ex = (name, answer) => ({ id: name, type: 'expr', exact: true, label: fn(name), correctAnswer: answer });
 
 module.exports = {
-  title: 'HW 4.1 - Right Triangle Trigonometry',
+  title: 'HW 4.1 - Right Triangle Review',
   questions: [
     // 1
     {

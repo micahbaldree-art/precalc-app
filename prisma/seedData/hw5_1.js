@@ -8,7 +8,7 @@ const ONE_FN = { min: 1, max: 1 };
 const NO_FN = { max: 0 };
 
 module.exports = {
-  title: 'HW 5.1 - Trig Identities',
+  title: "HW 5.1 - Basic ID's and Equations",
   questions: [
     // 1  (printed order: cos, then sin)
     {

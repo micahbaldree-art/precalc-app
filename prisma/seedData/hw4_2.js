@@ -6,7 +6,7 @@ const d = (x) => (x * Math.PI) / 180;
 const UNITS_AREA = ['square feet.', 'feet.', 'square meter.', 'meter.'];
 
 module.exports = {
-  title: 'HW 4.2 - Law of Sines and Law of Cosines',
+  title: 'HW 4.2 - Law of Sines and Cosines',
   questions: [
     // 1
     {
